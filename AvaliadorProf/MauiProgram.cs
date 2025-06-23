@@ -1,5 +1,7 @@
 ﻿using Android.Content.Res;
 using Microsoft.Extensions.Logging;
+using PanCardView;
+
 
 namespace AvaliadorProf
 {
@@ -10,6 +12,7 @@ namespace AvaliadorProf
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseCardsView()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

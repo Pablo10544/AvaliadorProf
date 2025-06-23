@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cards="clr-namespace:PanCardView;assembly=PanCardView"
              x:Class="AvaliadorProf.MainPage" NavigationPage.HasNavigationBar="False">
     <ContentPage.Background>
         <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
@@ -15,26 +16,36 @@
                 <Image></Image>
             </Grid>
         </Border>
-        <Border Grid.Row="1" BackgroundColor="White" Margin="20,20,20,0" StrokeThickness="2" Stroke="Black" StrokeShape="RoundRectangle 5">
-            <Grid RowDefinitions="0.85*,0.15*">
-                <Border>
-                    <!--Margin="-3,0,-1,0"-->
-                    <Border.Background>
-                        <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
-                            <GradientStop Color="#b3000000" Offset="0.0" />
-                            <GradientStop Color="#00000000" Offset="0.2" />
-                        </LinearGradientBrush>
-                    </Border.Background>
-                    <Image Source="dotnet_bot.png" />
+            <cards:CardsView Grid.Row="1" ItemsSource="{Binding x}" IsOnlyForwardDirection="True" IsVerticalSwipeEnabled="True" IsCyclical="False" BackViewsDepth="2">
+                <cards:CardsView.ItemTemplate>
+                <DataTemplate>
+                    <Border BackgroundColor="White" Margin="20,20,20,0" StrokeThickness="2" Stroke="Black" StrokeShape="RoundRectangle 5">
 
-                </Border>
-                <Button WidthRequest="50" Margin="0,0,20,20" HorizontalOptions="End" VerticalOptions="End"/>
-                <VerticalStackLayout Margin="15,0,0,30" VerticalOptions="End">
-                    <Label FontSize="Large" FontAttributes="Bold"  Text="TESTE"/>
-                    <Label  Text="TESTE"/>
-                </VerticalStackLayout>
-            </Grid>
-        </Border>
+                        <Grid RowDefinitions="0.85*,0.15*">
+                            <Border>
+                                <!--Margin="-3,0,-1,0"-->
+                                <Border.Background>
+                                    <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
+                                        <GradientStop Color="#b3000000" Offset="0.0" />
+                                        <GradientStop Color="#00000000" Offset="0.2" />
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                                <Image Source="dotnet_bot.png" />
+
+                            </Border>
+                            <Button WidthRequest="50" Margin="0,0,20,20" HorizontalOptions="End" VerticalOptions="End"/>
+                            <VerticalStackLayout Margin="15,0,0,30" VerticalOptions="End">
+                                <Label FontSize="Large" FontAttributes="Bold"  Text="TESTE"/>
+                                <Label  Text="TESTE"/>
+                            </VerticalStackLayout>
+                        </Grid>
+
+
+
+                    </Border>
+                </DataTemplate>
+            </cards:CardsView.ItemTemplate>
+            </cards:CardsView>
         <Border Grid.Row="2" Stroke="Black" StrokeShape="RoundRectangle 15" Margin="110,30,110,30" BackgroundColor="#EEEEEE">
             <Grid Grid.Row="2" ColumnDefinitions="0.5*,0.5*">
                 <Button BackgroundColor="#92DDEE" Margin="15,5,15,5"/>
