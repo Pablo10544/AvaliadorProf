@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AvaliadorProf.MainPage" NavigationPage.HasNavigationBar="False">
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#b3FFEFEF" Offset="0.16" />
+            <GradientStop Color="#ccF71313" Offset="0.99" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+    <Grid RowDefinitions="0.055*,0.8*,0.15*">
+        <Border BackgroundColor="White"  Stroke="Black" StrokeShape="RoundRectangle 7" Margin="20,10,20,0">
+            <Grid ColumnDefinitions="0.9*,0.1*">
+                <Entry HeightRequest="15" PlaceholderColor="#80000000"  Placeholder="Pesquisar..."/>
+                <Image></Image>
+            </Grid>
+        </Border>
+        <Border Grid.Row="1" BackgroundColor="White" Margin="20,20,20,0" StrokeThickness="2" Stroke="Black" StrokeShape="RoundRectangle 5">
+            <Grid RowDefinitions="0.85*,0.15*">
+                <Border>
+                    <!--Margin="-3,0,-1,0"-->
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
+                            <GradientStop Color="#b3000000" Offset="0.0" />
+                            <GradientStop Color="#00000000" Offset="0.2" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Image Source="dotnet_bot.png" />
+
+                </Border>
+                <Button WidthRequest="50" Margin="0,0,20,20" HorizontalOptions="End" VerticalOptions="End"/>
+                <VerticalStackLayout Margin="15,0,0,30" VerticalOptions="End">
+                    <Label FontSize="Large" FontAttributes="Bold"  Text="TESTE"/>
+                    <Label  Text="TESTE"/>
+                </VerticalStackLayout>
+            </Grid>
+        </Border>
+        <Border Grid.Row="2" Stroke="Black" StrokeShape="RoundRectangle 15" Margin="110,30,110,30" BackgroundColor="#EEEEEE">
+            <Grid Grid.Row="2" ColumnDefinitions="0.5*,0.5*">
+                <Button BackgroundColor="#92DDEE" Margin="15,5,15,5"/>
+                <Button Grid.Column="1" BackgroundColor="#92DDEE" Margin="15,5,15,5"/>
+            </Grid>
+        </Border>
+    </Grid>
+
+</ContentPage>
