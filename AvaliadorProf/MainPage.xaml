@@ -13,7 +13,7 @@
         <Border BackgroundColor="White"  Stroke="Black" StrokeShape="RoundRectangle 7" Margin="20,10,20,0">
             <Grid ColumnDefinitions="0.9*,0.1*">
                 <Entry HeightRequest="15" PlaceholderColor="#80000000"  Placeholder="Pesquisar..."/>
-                <Image></Image>
+                <Image Source="search.png" Margin="4" Grid.Column="1"></Image>
             </Grid>
         </Border>
             <cards:CardsView Grid.Row="1" ItemsSource="{Binding x}" IsOnlyForwardDirection="True" IsVerticalSwipeEnabled="True" IsCyclical="False" BackViewsDepth="2">
@@ -22,22 +22,34 @@
                     <Border BackgroundColor="White" Margin="20,20,20,0" StrokeThickness="2" Stroke="Black" StrokeShape="RoundRectangle 5">
 
                         <Grid RowDefinitions="0.85*,0.15*">
-                            <Border>
-                                <!--Margin="-3,0,-1,0"-->
-                                <Border.Background>
+                            <Image Aspect="Fill" ZIndex="2">
+                                <Image.Background>
                                     <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
-                                        <GradientStop Color="#b3000000" Offset="0.0" />
+                                        <GradientStop Color="#99000000" Offset="0.0" />
                                         <GradientStop Color="#00000000" Offset="0.2" />
                                     </LinearGradientBrush>
-                                </Border.Background>
-                                <Image Source="dotnet_bot.png" />
+                                </Image.Background>
+                            </Image>
+                            <Border            Margin="-3,-2,-1,0"
+                                >
+                                <!--Margin="-3,0,-1,0"-->
+                                
+                                <Image Source="fab.jpg" Aspect="AspectFill"></Image>
 
                             </Border>
-                            <Button WidthRequest="50" Margin="0,0,20,20" HorizontalOptions="End" VerticalOptions="End"/>
+                            <Border BackgroundColor="White" Margin="0,0,20,20" StrokeShape="Ellipse" HorizontalOptions="End" VerticalOptions="End">
+                                <ImageButton Source="question_mark.png" Scale="0.75"  HorizontalOptions="End" WidthRequest="30" MaximumWidthRequest="30" MaximumHeightRequest="30" VerticalOptions="End"/>
+                                
+                            </Border>
                             <VerticalStackLayout Margin="15,0,0,30" VerticalOptions="End">
                                 <Label FontSize="Large" FontAttributes="Bold"  Text="TESTE"/>
-                                <Label  Text="TESTE"/>
+                                <Label  Text="TESTEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE RRRRRE" HorizontalTextAlignment="Start" HorizontalOptions="Start" MaximumWidthRequest="250" LineBreakMode="TailTruncation"/>
                             </VerticalStackLayout>
+                            <ImageButton Grid.Row="1" Margin="0,10,55,10" WidthRequest="60" HorizontalOptions="End" Source="hex_green.png"></ImageButton>
+                            <ImageButton Grid.Row="1" Margin="0,25,55,25" WidthRequest="60" HorizontalOptions="End" Source="check.png"></ImageButton>
+                            <ImageButton Grid.Row="1" Margin="55,10,0,10" WidthRequest="60" HorizontalOptions="Start"  Source="hex_red.png"></ImageButton>
+                            <ImageButton Grid.Row="1" Margin="55,25,0,25" WidthRequest="60" HorizontalOptions="Start"  Source="close.png"></ImageButton>
+
                         </Grid>
 
 
@@ -46,10 +58,14 @@
                 </DataTemplate>
             </cards:CardsView.ItemTemplate>
             </cards:CardsView>
-        <Border Grid.Row="2" Stroke="Black" StrokeShape="RoundRectangle 15" Margin="110,30,110,30" BackgroundColor="#EEEEEE">
+        <Border Grid.Row="2" Stroke="Black" StrokeShape="RoundRectangle 15" Margin="110,30,110,25" BackgroundColor="#EEEEEE">
             <Grid Grid.Row="2" ColumnDefinitions="0.5*,0.5*">
-                <Button BackgroundColor="#92DDEE" Margin="15,5,15,5"/>
-                <Button Grid.Column="1" BackgroundColor="#92DDEE" Margin="15,5,15,5"/>
+                <Border BackgroundColor="#92ddee"  StrokeShape="RoundRectangle 23" Stroke="Transparent" Margin="14,3,14,3">
+                    <ImageButton Source="inbox.png" Scale="0.9" Padding="0,2,0,2" VerticalOptions="Start"/>
+                </Border>
+                <Border Grid.Column="1" BackgroundColor="#92ddee" StrokeShape="RoundRectangle 23" Stroke="Transparent"  Margin="14,3,14,3">
+                    <ImageButton Source="search.png" Padding="0,2,0,2" Scale="0.9" VerticalOptions="Start"/>
+                </Border>
             </Grid>
         </Border>
     </Grid>
