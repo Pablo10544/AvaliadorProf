@@ -1,4 +1,7 @@
-﻿using Android.Content.Res;
+﻿#if ANDROID
+using Android.Content.Res;
+#endif
+using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
 using PanCardView;
 
@@ -12,6 +15,7 @@ namespace AvaliadorProf
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseMauiCommunityToolkit()
                 .UseCardsView()
                 .ConfigureFonts(fonts =>
                 {
