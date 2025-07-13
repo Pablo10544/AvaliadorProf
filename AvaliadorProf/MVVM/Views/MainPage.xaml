@@ -64,7 +64,7 @@
                     <ImageButton Source="inbox.png" Command="{Binding IrParaCards}" Scale="0.9" Padding="0,2,0,2" VerticalOptions="Start"/>
                 </Border>
                 <Border Grid.Column="1" BackgroundColor="#92ddee" StrokeShape="RoundRectangle 23" Stroke="Transparent"  Margin="14,3,14,3">
-                    <ImageButton Source="search.png" Padding="0,2,0,2" Scale="0.9" VerticalOptions="Start"/>
+                    <ImageButton Source="search.png" Command="{Binding TesteTelaAvalCommand}"  Padding="0,2,0,2" Scale="0.9" VerticalOptions="Start"/>
                 </Border>
             </Grid>
         </Border>

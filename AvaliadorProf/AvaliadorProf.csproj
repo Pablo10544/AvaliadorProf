@@ -75,4 +75,10 @@
 		<PackageReference Include="Plugin.Maui.SwipeCardView" Version="1.0.0-preview2" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <MauiXaml Update="MVVM\Views\AvaliacaoView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
 </Project>

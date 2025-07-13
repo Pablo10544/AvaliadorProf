@@ -1,6 +1,11 @@
 ﻿using AvaliadorProf.MVVM.Models;
+using AvaliadorProf.MVVM.Views;
+using CommunityToolkit.Maui;
+using CommunityToolkit.Maui.Extensions;
+using CommunityToolkit.Maui.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Microsoft.Maui.Controls.Shapes;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -14,11 +19,13 @@ namespace AvaliadorProf.MVVM.ViewModels
     {
         public ObservableCollection<CardProfessor> cards { get; set; } = new();
         INavigation nav;
-        public MainViewModel(INavigation navigation)
+        ContentPage page;
+        public MainViewModel(INavigation navigation,ContentPage pageO)
         {
             cards.Add(new CardProfessor());
             cards.Add(new CardProfessor());
             nav=navigation;
+            this.page = pageO;
 
         }
         [RelayCommand]
@@ -29,6 +36,12 @@ namespace AvaliadorProf.MVVM.ViewModels
         async Task IrParaProcurar()
         {
 
+        }
+        [RelayCommand]
+        public async Task TesteTelaAval()
+        {
+            var popup = new AvaliacaoView();
+             page.ShowPopup(popup, PopupOptions.Empty);
         }
 
 
