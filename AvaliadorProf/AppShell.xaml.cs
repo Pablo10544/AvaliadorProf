@@ -1,4 +1,6 @@
-﻿namespace AvaliadorProf
+﻿using AvaliadorProf.MVVM.Views;
+
+namespace AvaliadorProf
 {
     public partial class AppShell : Shell
     {
@@ -6,6 +8,8 @@
         {
             InitializeComponent();
             Routing.RegisterRoute("main", typeof(MainPage));
+            Routing.RegisterRoute("login", typeof(Login));
+
         }
     }
 }

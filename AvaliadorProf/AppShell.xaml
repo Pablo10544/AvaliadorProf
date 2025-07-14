@@ -3,11 +3,15 @@
     x:Class="AvaliadorProf.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:AvaliadorProf"
-    Title="AvaliadorProf">
+    xmlns:local="clr-namespace:AvaliadorProf.MVVM.Views"
+    xmlns:teste ="clr-namespace:AvaliadorProf"
+    Title="AvaliadorProf"    Shell.FlyoutBehavior="Disabled">
 
     <ShellContent
-        ContentTemplate="{DataTemplate local:MainPage}"
+        ContentTemplate="{DataTemplate local:Login}"
+        Route="Login" />
+    <ShellContent
+        ContentTemplate="{DataTemplate teste:MainPage}"
         Route="MainPage" />
 
 </Shell>

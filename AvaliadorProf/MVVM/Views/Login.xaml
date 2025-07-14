@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                          xmlns:controls="clr-namespace:AvaliadorProf.Controls"
+             x:Class="AvaliadorProf.MVVM.Views.Login"
+>
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="#FFEFEF" Offset="0.16" />
+                <GradientStop Color="#ccF71313" Offset="0.99" />
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Border Margin="15" BackgroundColor="#53ffffff" StrokeShape="RoundRectangle 20" VerticalOptions="Center">
+
+            <VerticalStackLayout Padding="5,10,20,0"  Spacing="10">
+                <Border StrokeShape="Ellipse" WidthRequest="180" StrokeThickness="2" BackgroundColor="Black" Stroke="Black" HeightRequest="180">
+                    
+                <Image Source="user.png" Aspect="Fill" Scale="1.1" HeightRequest="180"></Image>
+                </Border>
+                    
+                <HorizontalStackLayout Padding="10,0,0,0" Spacing="20">
+                    <Label HorizontalTextAlignment="Start" VerticalTextAlignment="Center" WidthRequest="50">Email:</Label>
+                    <Border BackgroundColor="#83ffffff" Stroke="Black" StrokeShape="RoundRectangle 20" HeightRequest="30" >
+                        <Entry  WidthRequest="250" ></Entry>
+                    </Border>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Padding="10,0,0,0" Spacing="20">
+
+                    <Label  HorizontalTextAlignment="Start" WidthRequest="50" VerticalTextAlignment="Center"  Grid.Row="1">Senha:</Label>
+                    <Border BackgroundColor="#83ffffff" Stroke="Black" HeightRequest="30" StrokeShape="RoundRectangle 20">
+                        <Entry  HorizontalOptions="Start" WidthRequest="250" />
+                    </Border>
+                </HorizontalStackLayout>
+                <Button WidthRequest="110" BackgroundColor="#FB2B2B" CornerRadius="17" Clicked="Button_Clicked" FontSize="20" Text="Entrar"></Button>
+                <Grid>
+                    <Button HorizontalOptions="Center" Margin="0,0,0,4" MaximumHeightRequest="25"  FontAttributes="Bold" Padding="0,-10,0,0" FontSize="14" VerticalOptions="Start"  TextColor="DarkBlue" BackgroundColor="Transparent"></Button>
+                    <Label HorizontalOptions="Center" FontAttributes="Bold" TextDecorations="Underline" TextColor="DarkBlue" FontSize="16">Criar conta</Label>
+                </Grid>
+            </VerticalStackLayout>
+        </Border>
+
+        <controls:BlurView Radius="250" ZIndex="-1"  VerticalOptions="Fill" HorizontalOptions="Fill">
+            <Grid VerticalOptions="Fill" HeightRequest="1000" WidthRequest="1000" HorizontalOptions="Fill">
+
+                <Path x:Name="Red"  Fill="Red" TranslationX="80" Opacity="0.8" Data="M149 61C168.2 2.20002 88 -6 57.5 6.00002C-23 54 -0.499998 146.333 19 177.5C31.4 219.5 222.5 196 222.5 196C258.5 185 235 165.833 204.5 146.5C178 142.5 129.8 119.8 149 61Z"/>
+                <Path x:Name="Green"  Fill="Green" TranslationX="50" TranslationY="100" Opacity="0.8" Data="M149 61C168.2 2.20002 88 -6 57.5 6.00002C-23 54 -0.499998 146.333 19 177.5C31.4 219.5 222.5 196 222.5 196C258.5 185 235 165.833 204.5 146.5C178 142.5 129.8 119.8 149 61Z"/>
+                <Path x:Name="OrbitPath"  Fill="Blue"  Data="M149 61C168.2 2.20002 88 -6 57.5 6.00002C-23 54 -0.499998 146.333 19 177.5C31.4 219.5 222.5 196 222.5 196C258.5 185 235 165.833 204.5 146.5C178 142.5 129.8 119.8 149 61Z"/>
+            </Grid>
+        </controls:BlurView>
+    </Grid>
+</ContentPage>

@@ -4,7 +4,11 @@ using Android.Content.Res;
 using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
 using PanCardView;
-
+using Microsoft.Maui.Handlers;
+#if ANDROID
+using AvaliadorProf.Platforms.Android;
+using AvaliadorProf.Controls;
+#endif
 
 namespace AvaliadorProf
 {
@@ -13,6 +17,12 @@ namespace AvaliadorProf
         public static MauiApp CreateMauiApp()
         {
             var builder = MauiApp.CreateBuilder();
+#if ANDROID
+        builder.ConfigureMauiHandlers(handlers =>
+        {
+            handlers.AddHandler(typeof(BlurView), typeof(BlurViewHandler));
+        });
+#endif
             builder
                 .UseMauiApp<App>()
                 .UseMauiCommunityToolkit()

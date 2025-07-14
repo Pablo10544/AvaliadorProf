@@ -5,7 +5,7 @@
              x:Class="AvaliadorProf.MainPage" NavigationPage.HasNavigationBar="False">
     <ContentPage.Background>
         <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-            <GradientStop Color="#b3FFEFEF" Offset="0.16" />
+            <GradientStop Color="#FFEFEF" Offset="0.16" />
             <GradientStop Color="#ccF71313" Offset="0.99" />
         </LinearGradientBrush>
     </ContentPage.Background>
