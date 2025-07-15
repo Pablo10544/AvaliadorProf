@@ -1,4 +1,6 @@
 
+using AvaliadorProf.MVVM.ViewModels;
+
 namespace AvaliadorProf.MVVM.Views;
 
 public partial class Login : ContentPage
@@ -6,6 +8,7 @@ public partial class Login : ContentPage
     public Login()
     {
         InitializeComponent();
+
     }
     private void AnimateOrbit()
     {
@@ -40,6 +43,6 @@ public partial class Login : ContentPage
 
     private void Button_Clicked(object sender, EventArgs e)
     {
-         Shell.Current.GoToAsync("//MainPage");
+        NavigationAux.Instancia.GoToMainAsRoot();
     }
 }

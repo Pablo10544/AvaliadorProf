@@ -7,8 +7,8 @@ namespace AvaliadorProf
         public AppShell()
         {
             InitializeComponent();
-            Routing.RegisterRoute("main", typeof(MainPage));
-            Routing.RegisterRoute("login", typeof(Login));
+            //Routing.RegisterRoute("main", typeof(MainPage));
+            //Routing.RegisterRoute("login", typeof(Login));
 
         }
     }

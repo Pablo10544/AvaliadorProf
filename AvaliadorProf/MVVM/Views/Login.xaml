@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                           xmlns:controls="clr-namespace:AvaliadorProf.Controls"
-             x:Class="AvaliadorProf.MVVM.Views.Login"
+             x:Class="AvaliadorProf.MVVM.Views.Login"  NavigationPage.HasNavigationBar="False"
 >
     <Grid>
         <Grid.Background>
@@ -18,20 +18,20 @@
                     
                 <Image Source="user.png" Aspect="Fill" Scale="1.1" HeightRequest="180"></Image>
                 </Border>
-                    
-                <HorizontalStackLayout Padding="10,0,0,0" Spacing="20">
-                    <Label HorizontalTextAlignment="Start" VerticalTextAlignment="Center" WidthRequest="50">Email:</Label>
-                    <Border BackgroundColor="#83ffffff" Stroke="Black" StrokeShape="RoundRectangle 20" HeightRequest="30" >
-                        <Entry  WidthRequest="250" ></Entry>
+                <Grid ColumnDefinitions="0.2*,0.8*">
+                    <VerticalStackLayout Padding="10,5,0,0" Spacing="35">
+                        <Label FontAttributes="Bold" VerticalOptions="End" HorizontalTextAlignment="Start" VerticalTextAlignment="End" WidthRequest="50">Email:</Label>
+                        <Label FontAttributes="Bold" VerticalOptions="End"   HorizontalTextAlignment="Start" WidthRequest="50" VerticalTextAlignment="End"  Grid.Row="1">Senha:</Label>
+                </VerticalStackLayout>
+                    <VerticalStackLayout Grid.Column="1" Spacing="20">
+                        <Border HorizontalOptions="Fill" BackgroundColor="#83ffffff" Padding="0,-8,0,-8" Stroke="Black" StrokeShape="RoundRectangle 20"  >
+                            <Entry  ></Entry>
                     </Border>
-                </HorizontalStackLayout>
-                <HorizontalStackLayout Padding="10,0,0,0" Spacing="20">
-
-                    <Label  HorizontalTextAlignment="Start" WidthRequest="50" VerticalTextAlignment="Center"  Grid.Row="1">Senha:</Label>
-                    <Border BackgroundColor="#83ffffff" Stroke="Black" HeightRequest="30" StrokeShape="RoundRectangle 20">
-                        <Entry  HorizontalOptions="Start" WidthRequest="250" />
+                        <Border HorizontalOptions="Fill" BackgroundColor="#83ffffff" Padding="0,-8,0,-8" Stroke="Black" StrokeShape="RoundRectangle 20"  >
+                            <Entry VerticalOptions="End" VerticalTextAlignment="End"  HorizontalOptions="Start" />
                     </Border>
-                </HorizontalStackLayout>
+                </VerticalStackLayout>
+                </Grid>   
                 <Button WidthRequest="110" BackgroundColor="#FB2B2B" CornerRadius="17" Clicked="Button_Clicked" FontSize="20" Text="Entrar"></Button>
                 <Grid>
                     <Button HorizontalOptions="Center" Margin="0,0,0,4" MaximumHeightRequest="25"  FontAttributes="Bold" Padding="0,-10,0,0" FontSize="14" VerticalOptions="Start"  TextColor="DarkBlue" BackgroundColor="Transparent"></Button>

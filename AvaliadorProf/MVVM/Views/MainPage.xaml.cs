@@ -8,10 +8,10 @@ namespace AvaliadorProf
 {
     public partial class MainPage : ContentPage
     {
-        public MainPage()
+        public MainPage(MainViewModel main)
         {
             InitializeComponent();
-            BindingContext = new MainViewModel(Navigation,this);
+            BindingContext = main;
             
         }
 
@@ -20,6 +20,7 @@ namespace AvaliadorProf
             
                 //var popup = new AvaliacaoView();
                 // this.ShowPopup(popup, PopupOptions.Empty);
+                
             
         }
     }

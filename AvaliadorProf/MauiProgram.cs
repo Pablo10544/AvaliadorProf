@@ -5,6 +5,8 @@ using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
 using PanCardView;
 using Microsoft.Maui.Handlers;
+using AvaliadorProf.MVVM.ViewModels;
+using Microsoft.Maui.Controls.Internals;
 #if ANDROID
 using AvaliadorProf.Platforms.Android;
 using AvaliadorProf.Controls;
@@ -32,6 +34,13 @@ namespace AvaliadorProf
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
+            builder.Services.AddSingleton<MainViewModel>();
+            builder.Services.AddTransient<MVVM.Views.Login>();
+            builder.Services.AddTransient<MainPage>();
+            builder.Services.AddTransient<NavigationAux>();
+            builder.Services.AddSingleton<INavigation, NavigationProxy>();
+
+
 #if ANDROID
             Microsoft.Maui.Handlers.EntryHandler.Mapper.AppendToMapping("NoUnderline", (handler, view) =>
             {

@@ -5,13 +5,19 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:AvaliadorProf.MVVM.Views"
     xmlns:teste ="clr-namespace:AvaliadorProf"
-    Title="AvaliadorProf"    Shell.FlyoutBehavior="Disabled">
+    Title="AvaliadorProf">
 
-    <ShellContent
-        ContentTemplate="{DataTemplate local:Login}"
-        Route="Login" />
-    <ShellContent
-        ContentTemplate="{DataTemplate teste:MainPage}"
-        Route="MainPage" />
+
+
+    <TabBar Route="loginstack">
+        <ShellContent
+            Route="loginpage"
+            ContentTemplate="{DataTemplate local:Login}" />
+        <ShellContent
+            Route="mainpage"
+            ContentTemplate="{DataTemplate teste:MainPage}" />
+    </TabBar>
+
+    <!-- Stack principal -->
 
 </Shell>

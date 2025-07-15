@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:cards="clr-namespace:PanCardView;assembly=PanCardView"
-             x:Class="AvaliadorProf.MainPage" NavigationPage.HasNavigationBar="False">
+             x:Class="AvaliadorProf.MainPage" NavigationPage.HasNavigationBar="False" x:Name="Page">
     <ContentPage.Background>
         <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
             <GradientStop Color="#FFEFEF" Offset="0.16" />
@@ -12,7 +12,7 @@
     <Grid RowDefinitions="0.055*,0.8*,0.15*">
         <Border BackgroundColor="White"  Stroke="Black" StrokeShape="RoundRectangle 7" Margin="20,10,20,0">
             <Grid ColumnDefinitions="0.9*,0.1*">
-                <Entry HeightRequest="15" PlaceholderColor="#80000000"  Placeholder="Pesquisar..."/>
+                <Entry HeightRequest="15" PlaceholderColor="#80000000" Text="{Binding search}"  Placeholder="Pesquisar..."/>
                 <Image Source="search.png" Margin="4" Grid.Column="1"></Image>
             </Grid>
         </Border>
@@ -38,12 +38,12 @@
 
                             </Border>
                             <Border BackgroundColor="White" Margin="0,0,20,20" StrokeShape="Ellipse" HorizontalOptions="End" VerticalOptions="End">
-                                <ImageButton Source="question_mark.png" Scale="0.75"  HorizontalOptions="End" WidthRequest="30" MaximumWidthRequest="30" MaximumHeightRequest="30" VerticalOptions="End"/>
+                                <ImageButton Source="question_mark.png" Scale="0.75"   Command="{Binding Source={x:Reference Page},Path=BindingContext.PopUpAvaliacaoCommand}"  HorizontalOptions="End" WidthRequest="30" MaximumWidthRequest="30" MaximumHeightRequest="30" VerticalOptions="End"/>
                                 
                             </Border>
                             <VerticalStackLayout Margin="15,0,0,30" VerticalOptions="End">
                                 <Label FontSize="Large" FontAttributes="Bold"  Text="TESTE"/>
-                                <Label  Text="TESTEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE RRRRRE" HorizontalTextAlignment="Start" HorizontalOptions="Start" MaximumWidthRequest="250" LineBreakMode="TailTruncation"/>
+                                <Label  Text="TESTEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE RRRRRE" InputTransparent="True" HorizontalTextAlignment="Start" HorizontalOptions="Start" MaximumWidthRequest="250" LineBreakMode="TailTruncation"/>
                             </VerticalStackLayout>
                             <ImageButton Grid.Row="1" Margin="0,10,55,10" WidthRequest="60" HorizontalOptions="End" Source="hex_green.png"></ImageButton>
                             <ImageButton Grid.Row="1" Margin="0,25,55,25" WidthRequest="60" HorizontalOptions="End" Source="check.png"></ImageButton>
@@ -58,13 +58,13 @@
                 </DataTemplate>
             </cards:CardsView.ItemTemplate>
             </cards:CardsView>
-        <Border Grid.Row="2" Stroke="Black" StrokeShape="RoundRectangle 15" Margin="110,30,110,25" BackgroundColor="#EEEEEE">
+        <Border Grid.Row="2" Stroke="Black" StrokeShape="RoundRectangle 15" Margin="120,30,120,25" BackgroundColor="#EEEEEE">
             <Grid Grid.Row="2" ColumnDefinitions="0.5*,0.5*">
-                <Border BackgroundColor="#92ddee"  StrokeShape="RoundRectangle 23" Stroke="Transparent" Margin="14,3,14,3">
-                    <ImageButton Source="inbox.png" Command="{Binding IrParaCards}" Scale="0.9" Padding="0,2,0,2" VerticalOptions="Start"/>
+                <Border BackgroundColor="#92ddee"  StrokeShape="RoundRectangle 23" Stroke="Transparent" Margin="12,3,10,3">
+                    <ImageButton Source="inbox.png" Command="{Binding IrParaCardsCommand}" Scale="0.9" Padding="0,2,0,2" VerticalOptions="Start"/>
                 </Border>
-                <Border Grid.Column="1" BackgroundColor="#92ddee" StrokeShape="RoundRectangle 23" Stroke="Transparent"  Margin="14,3,14,3">
-                    <ImageButton Source="search.png" Command="{Binding TesteTelaAvalCommand}"  Padding="0,2,0,2" Scale="0.9" VerticalOptions="Start"/>
+                <Border Grid.Column="1" BackgroundColor="Transparent" StrokeShape="RoundRectangle 23" Stroke="Transparent"  Margin="12,3,10,3">
+                    <ImageButton Source="search.png" Command="{Binding IrParaProcurarCommand}"   Padding="0,2,0,2" Scale="0.9" VerticalOptions="Start"/>
                 </Border>
             </Grid>
         </Border>

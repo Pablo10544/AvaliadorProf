@@ -15,32 +15,35 @@ using System.Threading.Tasks;
 
 namespace AvaliadorProf.MVVM.ViewModels
 {
-    partial class MainViewModel : ObservableObject
+    public partial class MainViewModel : ObservableObject
     {
         public ObservableCollection<CardProfessor> cards { get; set; } = new();
         INavigation nav;
-        ContentPage page;
-        public MainViewModel(INavigation navigation,ContentPage pageO)
+        Page page;
+        public string search { get; set; }
+        public MainViewModel()
         {
             cards.Add(new CardProfessor());
             cards.Add(new CardProfessor());
-            nav=navigation;
-            this.page = pageO;
+            this.page = App.Current.Windows[0].Page;
 
         }
         [RelayCommand]
         async Task IrParaCards()
         {
-           await Shell.Current.GoToAsync("main");
-        }
-        async Task IrParaProcurar()
-        {
+            await NavigationAux.Instancia.GoToMainAsRoot();
 
         }
         [RelayCommand]
-        public async Task TesteTelaAval()
+        async Task IrParaProcurar()
+        {
+            await NavigationAux.Instancia.GoToLoginAsRoot();
+        }
+        [RelayCommand]
+        public async Task PopUpAvaliacao()
         {
             var popup = new AvaliacaoView();
+            Console.WriteLine("show popup");
              page.ShowPopup(popup, PopupOptions.Empty);
         }
 
