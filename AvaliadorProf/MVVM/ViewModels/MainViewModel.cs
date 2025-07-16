@@ -37,7 +37,7 @@ namespace AvaliadorProf.MVVM.ViewModels
         [RelayCommand]
         async Task IrParaProcurar()
         {
-            await NavigationAux.Instancia.GoToLoginAsRoot();
+            await NavigationAux.Instancia.GoToSearchAsRoot();
         }
         [RelayCommand]
         public async Task PopUpAvaliacao()
@@ -46,6 +46,7 @@ namespace AvaliadorProf.MVVM.ViewModels
             Console.WriteLine("show popup");
              page.ShowPopup(popup, PopupOptions.Empty);
         }
+
 
 
     }

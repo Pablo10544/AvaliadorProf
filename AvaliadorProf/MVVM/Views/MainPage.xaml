@@ -12,11 +12,11 @@
     <Grid RowDefinitions="0.055*,0.8*,0.15*">
         <Border BackgroundColor="White"  Stroke="Black" StrokeShape="RoundRectangle 7" Margin="20,10,20,0">
             <Grid ColumnDefinitions="0.9*,0.1*">
-                <Entry HeightRequest="15" PlaceholderColor="#80000000" Text="{Binding search}"  Placeholder="Pesquisar..."/>
+                <Entry HeightRequest="15" TextColor="Black" PlaceholderColor="#80000000" Text="{Binding search}"  Placeholder="Pesquisar..."/>
                 <Image Source="search.png" Margin="4" Grid.Column="1"></Image>
             </Grid>
         </Border>
-            <cards:CardsView Grid.Row="1" ItemsSource="{Binding cards}" IsOnlyForwardDirection="True" IsVerticalSwipeEnabled="True" IsCyclical="False" BackViewsDepth="2">
+        <cards:CardsView Grid.Row="1" ItemsSource="{Binding cards}"  IsOnlyForwardDirection="True" IsVerticalSwipeEnabled="True" IsCyclical="False" ItemSwiped="CardsView_ItemSwiped"  BackViewsDepth="3">
                 <cards:CardsView.ItemTemplate>
                 <DataTemplate>
                     <Border BackgroundColor="White" Margin="20,20,20,0" StrokeThickness="2" Stroke="Black" StrokeShape="RoundRectangle 5">
@@ -58,7 +58,7 @@
                 </DataTemplate>
             </cards:CardsView.ItemTemplate>
             </cards:CardsView>
-        <Border Grid.Row="2" Stroke="Black" StrokeShape="RoundRectangle 15" Margin="120,30,120,25" BackgroundColor="#EEEEEE">
+        <Border Grid.Row="2" Stroke="Black" StrokeShape="RoundRectangle 15" Margin="120,30,120,25" VerticalOptions="End" BackgroundColor="#EEEEEE">
             <Grid Grid.Row="2" ColumnDefinitions="0.5*,0.5*">
                 <Border BackgroundColor="#92ddee"  StrokeShape="RoundRectangle 23" Stroke="Transparent" Margin="12,3,10,3">
                     <ImageButton Source="inbox.png" Command="{Binding IrParaCardsCommand}" Scale="0.9" Padding="0,2,0,2" VerticalOptions="Start"/>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AvaliadorProf.MVVM.Views.Pesquisar" BackgroundColor="White"   NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Resources>
+        <Thickness x:Key="margem">0,0,0,0</Thickness>
+        <x:Double x:Key="width">180</x:Double>
+        <x:Double x:Key="height">80</x:Double>
+
+    </ContentPage.Resources>
+    <Grid>
+    <VerticalStackLayout>
+        <Border Stroke="Black" Margin="10,10,10,0" StrokeShape="RoundRectangle 5">
+            <Entry Margin="10,0,0,0" Placeholder="Pesquisar..." TextColor="Black" TextChanged="Entry_TextChanged"></Entry>
+        </Border>
+        <Label VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="30">Professores</Label>
+        <CollectionView ItemsSource="{Binding professoresShow}" Margin="5,0,5,0">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical"
+                        Span="2" HorizontalItemSpacing="5" VerticalItemSpacing="5" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                    <DataTemplate>
+
+                        <Button Text="{Binding}" Padding="0,0,40,30" HorizontalOptions="Fill" HeightRequest="{StaticResource height}" Margin="{StaticResource margem }"/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+    </VerticalStackLayout>
+    <Border Grid.Row="2" Stroke="Black" StrokeShape="RoundRectangle 15" Margin="120,30,120,25" VerticalOptions="End" BackgroundColor="#EEEEEE">
+        <Grid Grid.Row="2" ColumnDefinitions="0.5*,0.5*">
+                <Border BackgroundColor="Transparent"  StrokeShape="RoundRectangle 23" Stroke="Transparent" Margin="12,3,10,3">
+                    <ImageButton Source="inbox.png" Command="{Binding IrParaCardsCommand}" Scale="0.9" Padding="0,2,0,2" VerticalOptions="Start"/>
+            </Border>
+                <Border Grid.Column="1"  BackgroundColor="#92ddee" StrokeShape="RoundRectangle 23" Stroke="Transparent"  Margin="12,3,10,3">
+                <ImageButton Source="search.png" Command="{Binding IrParaProcurarCommand}"   Padding="0,2,0,2" Scale="0.9" VerticalOptions="Start"/>
+            </Border>
+        </Grid>
+    </Border>
+    </Grid>
+
+</ContentPage>

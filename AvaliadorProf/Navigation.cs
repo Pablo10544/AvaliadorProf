@@ -41,5 +41,10 @@ namespace AvaliadorProf
             _nav.InsertPageBefore(new Login(), _nav.NavigationStack[0]);
             await _nav.PopToRootAsync();
         }
+        public async Task GoToSearchAsRoot()
+        {
+            _nav.InsertPageBefore(new Pesquisar(), _nav.NavigationStack[0]);
+            await _nav.PopToRootAsync();
+        }
     }
 }
