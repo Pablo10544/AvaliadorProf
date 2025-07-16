@@ -42,11 +42,11 @@
 
 
             <Border Margin="15" StrokeShape="RoundRectangle 20" VerticalOptions="Center">
-        <controls:BlurView Scale="1.05" TranslationY="6" BackgroundColor="Transparent" Opacity="0.9" TranslationX="4" Radius="14" ZIndex="0" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="375" WidthRequest="350">
+        <controls:BlurView Scale="1.05" TranslationY="6" BackgroundColor="Transparent" Opacity="0.7" TranslationX="4" Radius="14" ZIndex="0" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="375" WidthRequest="350">
 
 
                 <VerticalStackLayout HorizontalOptions="Fill" Spacing="6" Padding="5,10,20,0">
-            <Border StrokeShape="Ellipse" WidthRequest="180" TranslationY="-2" TranslationX="-2" Opacity="0.5" StrokeThickness="10" BackgroundColor="Black" Stroke="Black" HeightRequest="180">
+            <Border StrokeShape="Ellipse" WidthRequest="180"  TranslationY="-2" TranslationX="-2" Opacity="0" StrokeThickness="10" BackgroundColor="Black" Stroke="Black" HeightRequest="180">
 
                 <Image Source="user.png" Aspect="Fill" Scale="1.1" HeightRequest="180"></Image>
             </Border>
