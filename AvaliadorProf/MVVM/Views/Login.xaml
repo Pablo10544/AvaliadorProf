@@ -11,7 +11,7 @@
                 <GradientStop Color="#ccF71313" Offset="0.99" />
             </LinearGradientBrush>
         </Grid.Background>
-        <Border Margin="15" BackgroundColor="#53ffffff" StrokeShape="RoundRectangle 20" VerticalOptions="Center">
+        <Border Margin="15" ZIndex="1" BackgroundColor="#40ffffff" StrokeShape="RoundRectangle 20" VerticalOptions="Center">
 
             <VerticalStackLayout Padding="5,10,20,0"  Spacing="10">
                 <Border StrokeShape="Ellipse" WidthRequest="180" StrokeThickness="2" BackgroundColor="Black" Stroke="Black" HeightRequest="180">
@@ -39,6 +39,36 @@
                 </Grid>
             </VerticalStackLayout>
         </Border>
+
+
+            <Border Margin="15" StrokeShape="RoundRectangle 20" VerticalOptions="Center">
+        <controls:BlurView Scale="1.05" TranslationY="6" BackgroundColor="Transparent" Opacity="0.9" TranslationX="4" Radius="14" ZIndex="0" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="375" WidthRequest="350">
+
+
+                <VerticalStackLayout HorizontalOptions="Fill" Spacing="6" Padding="5,10,20,0">
+            <Border StrokeShape="Ellipse" WidthRequest="180" TranslationY="-2" TranslationX="-2" Opacity="0.5" StrokeThickness="10" BackgroundColor="Black" Stroke="Black" HeightRequest="180">
+
+                <Image Source="user.png" Aspect="Fill" Scale="1.1" HeightRequest="180"></Image>
+            </Border>
+            <Grid ColumnDefinitions="0.2*,0.8*">
+                <VerticalStackLayout Padding="10,5,0,0" Spacing="35">
+                    <Label FontAttributes="Bold" VerticalOptions="End" HorizontalTextAlignment="Start" VerticalTextAlignment="End" WidthRequest="50">Email:</Label>
+                    <Label FontAttributes="Bold" VerticalOptions="End"   HorizontalTextAlignment="Start" WidthRequest="50" VerticalTextAlignment="End"  Grid.Row="1">Senha:</Label>
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Column="1" Margin="2,0,0,0" Spacing="19">
+                    <Border HorizontalOptions="Fill" BackgroundColor="#ffffffff" Padding="0,-8,0,-8" Stroke="Black" StrokeShape="RoundRectangle 20"  >
+                        <Entry  ></Entry>
+                    </Border>
+                    <Border HorizontalOptions="Fill" BackgroundColor="#ffffffff" Padding="0,-8,0,-8" Stroke="Black" StrokeShape="RoundRectangle 20"  >
+                        <Entry VerticalOptions="End" VerticalTextAlignment="End"  HorizontalOptions="Start" />
+                    </Border>
+                </VerticalStackLayout>
+            </Grid>
+                    <Button WidthRequest="110" BackgroundColor="#FB2B2B" CornerRadius="17" Clicked="Button_Clicked" FontSize="20" Text="Entrar"></Button>
+
+                </VerticalStackLayout>
+        </controls:BlurView>
+            </Border>
 
         <controls:BlurView Radius="250" ZIndex="-1"  VerticalOptions="Fill" HorizontalOptions="Fill">
             <Grid VerticalOptions="Fill" HeightRequest="1000" WidthRequest="1000" HorizontalOptions="Fill">
