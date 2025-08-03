@@ -6,9 +6,9 @@
 
     <VerticalStackLayout >
         <Grid ColumnDefinitions="0.7*,0.25*">
-            <Label VerticalOptions="Start" HorizontalOptions="End" FontSize="30">Professor X</Label>
+            <Label VerticalOptions="Start" HorizontalOptions="End" FontSize="30" Text="{Binding Card.Nome,StringFormat='Professor {0}'}"></Label>
             <Border Margin="5,8,-5,6" BackgroundColor="Blue" Grid.Column="1" StrokeShape="RoundRectangle 20">
-                <Label VerticalTextAlignment="Center" Padding="0,0,0,5"   HorizontalTextAlignment="Center" TextColor="White" FontSize="14">Nota:2.5</Label>
+                <Label VerticalTextAlignment="Center" Padding="0,0,0,5"   HorizontalTextAlignment="Center" TextColor="White" FontSize="14" Text="{Binding Card.MediaNotas,StringFormat='Nota: {0}'}"></Label>
             </Border>
         </Grid>
         <Border StrokeShape="RoundRectangle 20" BackgroundColor="LightGray" WidthRequest="110">
@@ -38,60 +38,60 @@
             <VerticalStackLayout Grid.Column="1" Spacing="-2">
                 <HorizontalStackLayout Spacing="-8">
                     <Border Padding="-10" Stroke="Transparent">
-                        <ImageButton WidthRequest="55" HeightRequest="55" Source="star_with_border.png"/>
+                        <ImageButton Opacity="{Binding opacidadeEstrelaDidadica[0]}" WidthRequest="55" HeightRequest="55" Source="star_with_border.png"/>
                     </Border>
                     <Border Padding="-10" Stroke="Transparent">
-                        <ImageButton WidthRequest="55" HeightRequest="55" Source="star_with_border.png"/>
+                        <ImageButton Opacity="{Binding opacidadeEstrelaDidadica[1]}"  WidthRequest="55" HeightRequest="55" Source="star_with_border.png"/>
                     </Border>
                     <Border Padding="-10" Stroke="Transparent">
 
-                        <ImageButton WidthRequest="55" HeightRequest="55" Source="star_with_border.png"/>
+                        <ImageButton  Opacity="{Binding opacidadeEstrelaDidadica[2]}" WidthRequest="55" HeightRequest="55" Source="star_with_border.png"/>
                     </Border>
                     <Border Padding="-10" Stroke="Transparent"
                             >
-                        <ImageButton WidthRequest="55" HeightRequest="55" Source="star_with_border.png"/>
+                        <ImageButton  Opacity="{Binding opacidadeEstrelaDidadica[3]}"  WidthRequest="55" HeightRequest="55" Source="star_with_border.png"/>
                     </Border>
                     <Border Padding="-10" Stroke="Transparent">
-                        <ImageButton WidthRequest="55" Opacity="0.2" HeightRequest="55" Source="star_with_border.png"/>
-                    </Border>
-                </HorizontalStackLayout>
-                <HorizontalStackLayout Spacing="-8">
-                    <Border Padding="-10" Stroke="Transparent">
-
-                        <ImageButton WidthRequest="55" HeightRequest="55" Source="star_with_border.png"/>
-                    </Border>
-                    <Border Padding="-10" Stroke="Transparent">
-
-                        <ImageButton WidthRequest="55" HeightRequest="55" Source="star_with_border.png"/>
-                    </Border>
-                    <Border Padding="-10" Stroke="Transparent">
-
-                        <ImageButton WidthRequest="55" HeightRequest="55" Source="star_with_border.png"/>
-                    </Border>
-                    <Border Padding="-10" Stroke="Transparent">
-
-                        <ImageButton WidthRequest="55" HeightRequest="55" Source="star_with_border.png"/>
-                    </Border>
-                    <Border Padding="-10" Stroke="Transparent">
-
-                        <ImageButton WidthRequest="55" Opacity="0.2" HeightRequest="55" Source="star_with_border.png"/>
+                        <ImageButton  Opacity="{Binding opacidadeEstrelaDidadica[4]}" WidthRequest="55" HeightRequest="55" Source="star_with_border.png"/>
                     </Border>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout Spacing="-8">
                     <Border Padding="-10" Stroke="Transparent">
-                        <ImageButton WidthRequest="55" HeightRequest="55" Source="star_with_border.png"/>
+
+                        <ImageButton Opacity="{Binding opacidadeEstrelaDificuldadeProva[0]}" WidthRequest="55" HeightRequest="55" Source="star_with_border.png"/>
                     </Border>
                     <Border Padding="-10" Stroke="Transparent">
-                        <ImageButton WidthRequest="55" HeightRequest="55" Source="star_with_border.png"/>
+
+                        <ImageButton Opacity="{Binding opacidadeEstrelaDificuldadeProva[1]}" WidthRequest="55" HeightRequest="55" Source="star_with_border.png"/>
                     </Border>
                     <Border Padding="-10" Stroke="Transparent">
-                        <ImageButton WidthRequest="55" HeightRequest="55" Source="star_with_border.png"/>
+
+                        <ImageButton Opacity="{Binding opacidadeEstrelaDificuldadeProva[2]}" WidthRequest="55" HeightRequest="55" Source="star_with_border.png"/>
                     </Border>
                     <Border Padding="-10" Stroke="Transparent">
-                        <ImageButton WidthRequest="55" HeightRequest="55" Source="star_with_border.png"/>
+
+                        <ImageButton Opacity="{Binding opacidadeEstrelaDificuldadeProva[3]}" WidthRequest="55" HeightRequest="55" Source="star_with_border.png"/>
                     </Border>
                     <Border Padding="-10" Stroke="Transparent">
-                        <ImageButton WidthRequest="55" Opacity="0.2" HeightRequest="55" Source="star_with_border.png"/>
+
+                        <ImageButton Opacity="{Binding opacidadeEstrelaDificuldadeProva[4]}" WidthRequest="55" HeightRequest="55" Source="star_with_border.png"/>
+                    </Border>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Spacing="-8">
+                    <Border Padding="-10" Stroke="Transparent">
+                        <ImageButton Opacity="{Binding opacidadeEstrelaNotaPlanoEnsino[0]}" WidthRequest="55" HeightRequest="55" Source="star_with_border.png"/>
+                    </Border>
+                    <Border Padding="-10" Stroke="Transparent">
+                        <ImageButton Opacity="{Binding opacidadeEstrelaNotaPlanoEnsino[1]}" WidthRequest="55" HeightRequest="55" Source="star_with_border.png"/>
+                    </Border>
+                    <Border Padding="-10" Stroke="Transparent">
+                        <ImageButton Opacity="{Binding opacidadeEstrelaNotaPlanoEnsino[2]}" WidthRequest="55" HeightRequest="55" Source="star_with_border.png"/>
+                    </Border>
+                    <Border Padding="-10" Stroke="Transparent">
+                        <ImageButton Opacity="{Binding opacidadeEstrelaNotaPlanoEnsino[3]}" WidthRequest="55" HeightRequest="55" Source="star_with_border.png"/>
+                    </Border>
+                    <Border Padding="-10" Stroke="Transparent">
+                        <ImageButton  Opacity="{Binding opacidadeEstrelaNotaPlanoEnsino[4]}" WidthRequest="55"  HeightRequest="55" Source="star_with_border.png"/>
                     </Border>
                 </HorizontalStackLayout>
 
@@ -139,11 +139,11 @@
                         </HorizontalStackLayout>
                     </VerticalStackLayout>
                     <VerticalStackLayout Padding="-20,2,0,0" Margin="0,0,25,0" Grid.Column="2" Spacing="4">
-                        <ProgressBar ScaleY="1.7" Progress=".50" ProgressColor="#1f1e1e"   VerticalOptions="Start" ></ProgressBar>
-                        <ProgressBar ScaleY="1.7"  Progress=".50" ProgressColor="#1f1e1e"  VerticalOptions="Start"  ></ProgressBar>
-                        <ProgressBar ScaleY="1.7"  Progress=".50" ProgressColor="#1f1e1e"  VerticalOptions="Start"  ></ProgressBar>
-                        <ProgressBar ScaleY="1.7"  Progress=".50" ProgressColor="#1f1e1e"  VerticalOptions="Start" ></ProgressBar>
-                        <ProgressBar ScaleY="1.7"  Progress=".50" ProgressColor="#1f1e1e"  VerticalOptions="Start" ></ProgressBar>
+                        <ProgressBar ScaleY="1.7" Progress="{Binding Progress5stars}" ProgressColor="#1f1e1e"   VerticalOptions="Start" ></ProgressBar>
+                        <ProgressBar ScaleY="1.7"  Progress="{Binding Progress4stars}" ProgressColor="#1f1e1e"  VerticalOptions="Start"  ></ProgressBar>
+                        <ProgressBar ScaleY="1.7"  Progress="{Binding Progress3stars}" ProgressColor="#1f1e1e"  VerticalOptions="Start"  ></ProgressBar>
+                        <ProgressBar ScaleY="1.7"  Progress="{Binding Progress2stars}" ProgressColor="#1f1e1e"  VerticalOptions="Start" ></ProgressBar>
+                        <ProgressBar ScaleY="1.7"  Progress="{Binding Progress1stars}" ProgressColor="#1f1e1e"  VerticalOptions="Start" ></ProgressBar>
 
                     </VerticalStackLayout>
                 </Grid>

@@ -15,6 +15,14 @@ namespace AvaliadorProf.MVVM.Models
         public float NotaDidatica { get; set; }
         public float NotaDificuldadeProva { get; set; }
         public float NotaPlanoEnisno{ get; set; }
+        public float MediaNotas { get; set; }
+        public int TotalAvaliacoes { get; set; }
+        public int quantidade_nota_5 { get; set; }
+        public int quantidade_nota_4 { get; set; }
+        public int quantidade_nota_3 { get; set; }
+        public int quantidade_nota_2 { get; set; }
+        public int quantidade_nota_1 { get; set; }
+
         public List<string> Comentarios { get; set; }
 
 

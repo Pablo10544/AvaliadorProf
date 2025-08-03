@@ -14,6 +14,11 @@ namespace AvaliadorProf
             BindingContext = main;
             
         }
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            (BindingContext as MainViewModel)?.AppearingCommand.Execute(null);
+        }
 
         private void ImageButton_Clicked(object sender, EventArgs e)
         {

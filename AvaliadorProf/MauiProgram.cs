@@ -37,7 +37,9 @@ namespace AvaliadorProf
             builder.Services.AddSingleton<MainViewModel>();
             builder.Services.AddTransient<MVVM.Views.Login>();
             builder.Services.AddTransient<MainPage>();
+            builder.Services.AddTransient<MainViewService>();
             builder.Services.AddTransient<NavigationAux>();
+            builder.Services.AddTransient<HttpClient>();
             builder.Services.AddSingleton<INavigation, NavigationProxy>();
 
 
