@@ -79,6 +79,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="MVVM\Views\AvaliacaoEditView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="MVVM\Views\AvaliacaoView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

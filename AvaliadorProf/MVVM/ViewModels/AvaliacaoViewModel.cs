@@ -42,7 +42,7 @@ namespace AvaliadorProf.MVVM.ViewModels
                 opacidadeEstrelaDificuldadeProva.Add(0.2);
                 opacidadeEstrelaNotaPlanoEnsino.Add(0.2);
             }
-           _=PopularCards();
+           _=PopularCards(card.Id);
 
         }
         private void ShowStars(ObservableCollection<double> colecao, double nota)
@@ -53,9 +53,9 @@ namespace AvaliadorProf.MVVM.ViewModels
                 colecao[i] = 1;
             }
         }
-        public async Task PopularCards()
+        public async Task PopularCards(int id)
         {
-            var CardNovo = await _avaliacaoViewService.GetDetail();
+            var CardNovo = await _avaliacaoViewService.GetDetail(id);
              AtualizarObjeto<CardProfessor>(Card,CardNovo);
             Card.MediaNotas = (Card.NotaDidatica + Card.NotaPlanoEnisno + Card.NotaDificuldadeProva) / 3;
             ShowStars(opacidadeEstrelaDidadica, Card.NotaDidatica);
@@ -108,5 +108,6 @@ namespace AvaliadorProf.MVVM.ViewModels
                 }
             }
         }
+
     }
 }

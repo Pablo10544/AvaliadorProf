@@ -25,10 +25,10 @@
                 </VerticalStackLayout>
                     <VerticalStackLayout Grid.Column="1" Spacing="20">
                         <Border HorizontalOptions="Fill" BackgroundColor="#83ffffff" Padding="0,-8,0,-8" Stroke="Black" StrokeShape="RoundRectangle 20"  >
-                            <Entry  ></Entry>
+                            <Entry x:Name="email" ></Entry>
                     </Border>
                         <Border HorizontalOptions="Fill" BackgroundColor="#83ffffff" Padding="0,-8,0,-8" Stroke="Black" StrokeShape="RoundRectangle 20"  >
-                            <Entry VerticalOptions="End" VerticalTextAlignment="End"  HorizontalOptions="Start" />
+                            <Entry x:Name="senha" VerticalOptions="End" VerticalTextAlignment="End"  HorizontalOptions="Start" />
                     </Border>
                 </VerticalStackLayout>
                 </Grid>   

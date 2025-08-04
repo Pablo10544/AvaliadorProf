@@ -6,6 +6,8 @@ using CommunityToolkit.Maui.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Maui.Controls.Shapes;
+using PanCardView;
+using PanCardView.Processors;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -19,6 +21,7 @@ namespace AvaliadorProf.MVVM.ViewModels
     {
         public ObservableCollection<CardProfessor> cards { get; set; } = new();
         Page page;
+        public CardsView cardView;
         public string search { get; set; }
         private MainViewService _mainViewService;
         public MainViewModel(MainViewService mainViewService)
@@ -63,7 +66,20 @@ namespace AvaliadorProf.MVVM.ViewModels
         {
            return await _mainViewService.GetCards();
         }
+        [RelayCommand]
+        public async Task Rejeitar(int professor_id)
+        {   
+            cards.RemoveAt(0);
+            await _mainViewService.Rejeitar(professor_id);
+        }
 
+        [RelayCommand]
+        public void Match(CardProfessor Professor)
+        {
+            var popup = new AvaliacaoEditView(Professor);
+            Console.WriteLine("show popup");
+            page.ShowPopup(popup, PopupOptions.Empty);
+        }
 
     }
 }

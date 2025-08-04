@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AvaliadorProf.MVVM.ViewModels
+namespace AvaliadorProf.Services
 {
-    public class PesquisarViewModel
+    public class LoginService
     {
-        public PesquisarViewModel()
-        {
-
-        }
     }
 }

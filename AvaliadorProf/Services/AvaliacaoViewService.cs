@@ -12,18 +12,20 @@ namespace AvaliadorProf.Services
     {
         private HttpClient _client;
         private Uri base_url = new Uri("http://10.0.2.2:5000");
-        const string urlGetCards = "buscar-avaliacao?professor_id=1";
+        const string urlGetCards = "buscar-avaliacao";
+ 
 
         public AvaliacaoViewService(HttpClient cliente)
         {
             _client = cliente;
             _client.BaseAddress = base_url;
         }
-        public async Task<CardProfessor> GetDetail()
+
+        public async Task<CardProfessor> GetDetail(int id)
         {
 
 
-            var response = await _client.GetAsync(urlGetCards);
+            var response = await _client.GetAsync(urlGetCards+"?professor_id="+id);
             var teste = await response.Content.ReadAsStringAsync();
             var Card = JsonSerializer.Deserialize<CardProfessor>(teste, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
             //convert response to object

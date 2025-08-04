@@ -1,5 +1,6 @@
 ﻿using AvaliadorProf.MVVM.ViewModels;
 using AvaliadorProf.MVVM.Views;
+using AvaliadorProf.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,12 +17,14 @@ namespace AvaliadorProf
         Login _login;
         MainPage _mainPage;
         MainViewModel _mv;
-        public NavigationAux(IServiceProvider serviceProvider,MVVM.Views.Login login, MainPage mainPage,MainViewModel mv)
+        PesquisarViewService _ps;
+        public NavigationAux(IServiceProvider serviceProvider,MVVM.Views.Login login, MainPage mainPage,MainViewModel mv,PesquisarViewService vs)
         {
             _nav = App.Current.Windows[0].Page.Navigation;
             _login = login;
             _mainPage = mainPage;
             _mv = mv;
+            _ps = vs;
         }
         public static NavigationAux Instancia => _instancia
     ??= IPlatformApplication.Current.Services.GetRequiredService<NavigationAux>();
@@ -43,7 +46,7 @@ namespace AvaliadorProf
         }
         public async Task GoToSearchAsRoot()
         {
-            _nav.InsertPageBefore(new Pesquisar(), _nav.NavigationStack[0]);
+            _nav.InsertPageBefore(new Pesquisar(_ps), _nav.NavigationStack[0]);
             await _nav.PopToRootAsync();
         }
     }

@@ -11,6 +11,7 @@ namespace AvaliadorProf
         public MainPage(MainViewModel main)
         {
             InitializeComponent();
+            main.cardView = cardView;
             BindingContext = main;
             
         }
@@ -22,11 +23,9 @@ namespace AvaliadorProf
 
         private void ImageButton_Clicked(object sender, EventArgs e)
         {
-            
-                //var popup = new AvaliacaoView();
-                // this.ShowPopup(popup, PopupOptions.Empty);
-                
-            
+
+            //var popup = new AvaliacaoView();
+            // this.ShowPopup(popup, PopupOptions.Empty);
         }
     }
 }

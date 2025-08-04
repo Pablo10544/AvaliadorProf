@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AvaliadorProf.MVVM.Views.AvaliacaoEditView"
+             Margin="5,0,5,5" WidthRequest="300" HeightRequest="340">
+
+    <VerticalStackLayout >
+        <Grid>
+            <Label VerticalOptions="Center" HorizontalOptions="Center" FontSize="30" Text="{Binding Card.Nome,StringFormat='Professor {0}'}"></Label>
+        </Grid>
+        <Border StrokeShape="RoundRectangle 20" BackgroundColor="LightGray" WidthRequest="110">
+            <Grid ColumnDefinitions="0.7*,0.3*" HeightRequest="27">
+                <Picker Title="Disciplina" Margin="0,0,0,-6" TitleColor="#ff000000" TextColor="Black" FontSize="12" HorizontalOptions="Center" >
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Baboon</x:String>
+                            <x:String>Capuchin Monkey</x:String>
+                            <x:String>Blue Monkey</x:String>
+                            <x:String>Squirrel Monkey</x:String>
+                            <x:String>Golden Lion Tamarin</x:String>
+                            <x:String>Howler Monkey</x:String>
+                            <x:String>Japanese Macaque</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <ImageButton Source="arrow_drop_down.png" Grid.Column="1" ></ImageButton>
+            </Grid>
+        </Border>
+        <Grid ColumnDefinitions="0.5*,0.5*">
+            <VerticalStackLayout Spacing="10" Margin="0,20,0,10">
+                <Label>Didática:</Label>
+                <Label>Dificuldade da Prova:</Label>
+                <Label>Plano de Ensino:</Label>
+            </VerticalStackLayout>
+            <VerticalStackLayout Grid.Column="1" Spacing="-2">
+                <HorizontalStackLayout Spacing="-8">
+                    <Border Padding="-10" Stroke="Transparent">
+                        <ImageButton Opacity="{Binding opacidadeEstrelaDidadica[0]}" Command="{Binding AvalDidaticaCommand}" CommandParameter="1" WidthRequest="55" HeightRequest="55" Source="star_with_border.png"/>
+                    </Border>
+                    <Border Padding="-10" Stroke="Transparent">
+                        <ImageButton Opacity="{Binding opacidadeEstrelaDidadica[1]}" Command="{Binding AvalDidaticaCommand}" CommandParameter="2" WidthRequest="55" HeightRequest="55" Source="star_with_border.png"/>
+                    </Border>
+                    <Border Padding="-10" Stroke="Transparent">
+
+                        <ImageButton  Opacity="{Binding opacidadeEstrelaDidadica[2]}" Command="{Binding AvalDidaticaCommand}" CommandParameter="3" WidthRequest="55" HeightRequest="55" Source="star_with_border.png"/>
+                    </Border>
+                    <Border Padding="-10" Stroke="Transparent"
+                            >
+                        <ImageButton  Opacity="{Binding opacidadeEstrelaDidadica[3]}" Command="{Binding AvalDidaticaCommand}" CommandParameter="4"  WidthRequest="55" HeightRequest="55" Source="star_with_border.png"/>
+                    </Border>
+                    <Border Padding="-10" Stroke="Transparent">
+                        <ImageButton  Opacity="{Binding opacidadeEstrelaDidadica[4]}" Command="{Binding AvalDidaticaCommand}" CommandParameter="5" WidthRequest="55" HeightRequest="55" Source="star_with_border.png"/>
+                    </Border>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Spacing="-8">
+                    <Border Padding="-10" Stroke="Transparent">
+
+                        <ImageButton Opacity="{Binding opacidadeEstrelaDificuldadeProva[0]}" Command="{Binding AvalDificuldadeProvaCommand}" CommandParameter="1" WidthRequest="55" HeightRequest="55" Source="star_with_border.png"/>
+                    </Border>
+                    <Border Padding="-10" Stroke="Transparent">
+
+                        <ImageButton Opacity="{Binding opacidadeEstrelaDificuldadeProva[1]}" Command="{Binding AvalDificuldadeProvaCommand}" CommandParameter="2" WidthRequest="55" HeightRequest="55" Source="star_with_border.png"/>
+                    </Border>
+                    <Border Padding="-10" Stroke="Transparent">
+
+                        <ImageButton Opacity="{Binding opacidadeEstrelaDificuldadeProva[2]}" Command="{Binding AvalDificuldadeProvaCommand}" CommandParameter="3" WidthRequest="55" HeightRequest="55" Source="star_with_border.png"/>
+                    </Border>
+                    <Border Padding="-10" Stroke="Transparent">
+
+                        <ImageButton Opacity="{Binding opacidadeEstrelaDificuldadeProva[3]}" Command="{Binding AvalDificuldadeProvaCommand}" CommandParameter="4" WidthRequest="55" HeightRequest="55" Source="star_with_border.png"/>
+                    </Border>
+                    <Border Padding="-10" Stroke="Transparent">
+
+                        <ImageButton Opacity="{Binding opacidadeEstrelaDificuldadeProva[4]}" Command="{Binding AvalDificuldadeProvaCommand}" CommandParameter="5" WidthRequest="55" HeightRequest="55" Source="star_with_border.png"/>
+                    </Border>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Spacing="-8">
+                    <Border Padding="-10" Stroke="Transparent">
+                        <ImageButton Opacity="{Binding opacidadeEstrelaNotaPlanoEnsino[0]}" Command="{Binding AvalPlanoDeEnsinoCommand}" CommandParameter="1" WidthRequest="55" HeightRequest="55" Source="star_with_border.png"/>
+                    </Border>
+                    <Border Padding="-10" Stroke="Transparent">
+                        <ImageButton Opacity="{Binding opacidadeEstrelaNotaPlanoEnsino[1]}" Command="{Binding AvalPlanoDeEnsinoCommand}" CommandParameter="2" WidthRequest="55" HeightRequest="55" Source="star_with_border.png"/>
+                    </Border>
+                    <Border Padding="-10" Stroke="Transparent">
+                        <ImageButton Opacity="{Binding opacidadeEstrelaNotaPlanoEnsino[2]}" Command="{Binding AvalPlanoDeEnsinoCommand}" CommandParameter="3" WidthRequest="55" HeightRequest="55" Source="star_with_border.png"/>
+                    </Border>
+                    <Border Padding="-10" Stroke="Transparent">
+                        <ImageButton Opacity="{Binding opacidadeEstrelaNotaPlanoEnsino[3]}" Command="{Binding AvalPlanoDeEnsinoCommand}" CommandParameter="4" WidthRequest="55" HeightRequest="55" Source="star_with_border.png"/>
+                    </Border>
+                    <Border Padding="-10" Stroke="Transparent">
+                        <ImageButton  Opacity="{Binding opacidadeEstrelaNotaPlanoEnsino[4]}" Command="{Binding AvalPlanoDeEnsinoCommand}" CommandParameter="5" WidthRequest="55"  HeightRequest="55" Source="star_with_border.png"/>
+                    </Border>
+                </HorizontalStackLayout>
+                  
+
+            </VerticalStackLayout>
+        </Grid>
+        <Grid ColumnDefinitions="0.3*,0.75*">
+            <Label>Comentário:</Label>
+
+            <Border Grid.Column="1" Margin="0,0,-5,0" HeightRequest="80" StrokeShape="RoundRectangle 10" BackgroundColor="#BB1717">
+                <Entry Placeholder="..." Text="{Binding Comentario}" TextColor="White"></Entry>
+            </Border>
+        </Grid>
+        <Button BackgroundColor="#FB2B2B" Command="{Binding EnviarAvaliacaoCommand}" Text="Enviar" Margin="0,20,0,0" Padding="20" HorizontalOptions="Center"></Button>
+
+            
+    </VerticalStackLayout>
+
+</ContentView>

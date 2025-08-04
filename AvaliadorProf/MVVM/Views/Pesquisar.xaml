@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AvaliadorProf.MVVM.Views.Pesquisar" BackgroundColor="White"   NavigationPage.HasNavigationBar="False">
+             x:Class="AvaliadorProf.MVVM.Views.Pesquisar" BackgroundColor="White" x:Name="Page"   NavigationPage.HasNavigationBar="False">
 
     <ContentPage.Resources>
         <Thickness x:Key="margem">0,0,0,0</Thickness>
@@ -23,7 +23,7 @@
             <CollectionView.ItemTemplate>
                     <DataTemplate>
 
-                        <Button Text="{Binding}" Padding="0,0,40,30" HorizontalOptions="Fill" HeightRequest="{StaticResource height}" Margin="{StaticResource margem }"/>
+                        <Button Text="{Binding Nome}" Padding="0,0,40,30" HorizontalOptions="Fill" Command="{Binding Source={x:Reference Page},Path=BindingContext.PopUpAvaliacaoCommand}" CommandParameter="{Binding}" HeightRequest="{StaticResource height}" Margin="{StaticResource margem }"/>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>

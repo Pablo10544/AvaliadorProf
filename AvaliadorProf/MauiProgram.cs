@@ -7,6 +7,7 @@ using PanCardView;
 using Microsoft.Maui.Handlers;
 using AvaliadorProf.MVVM.ViewModels;
 using Microsoft.Maui.Controls.Internals;
+using AvaliadorProf.Services;
 #if ANDROID
 using AvaliadorProf.Platforms.Android;
 using AvaliadorProf.Controls;
@@ -40,6 +41,7 @@ namespace AvaliadorProf
             builder.Services.AddTransient<MainViewService>();
             builder.Services.AddTransient<NavigationAux>();
             builder.Services.AddTransient<HttpClient>();
+            builder.Services.AddTransient<PesquisarViewService>();        
             builder.Services.AddSingleton<INavigation, NavigationProxy>();
 
 

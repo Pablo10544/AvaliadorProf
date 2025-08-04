@@ -1,3 +1,7 @@
+using AvaliadorProf.MVVM.Models;
+using AvaliadorProf.Services;
+using CommunityToolkit.Maui;
+using CommunityToolkit.Maui.Extensions;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
@@ -6,35 +10,33 @@ namespace AvaliadorProf.MVVM.Views;
 
 public partial class Pesquisar : ContentPage
 {
-	List<string> _professores = new();
-	public List<string> Professores { get { return _professores; } set { professoresShow = ConvertToObservableCollection(value); _professores = value; } }
-	public ObservableCollection<string> professoresShow { get; set; } = new();
+	List<SearchProfessor> _professores = new();
+	public List<SearchProfessor> Professores { get { return _professores; } set { professoresShow = new ObservableCollection<SearchProfessor>(value); _professores = value; } }
+	public ObservableCollection<SearchProfessor> professoresShow { get; set; } = new();
 	public string search { get; set; }
+	private PesquisarViewService _pesquisarViewService;
+    private Page _page;
 
-    public Pesquisar()
+    public Pesquisar(PesquisarViewService pesquisarViewService)
 	{
-		List<string> temp = new();
-        temp.Add("maria");
-        temp.Add("joao");
-        temp.Add("jose");
-		Professores = temp;
+		_pesquisarViewService = pesquisarViewService;
         BindingContext = this;
+        _page = this;
 		InitializeComponent();
 	}
+    protected override async void OnAppearing()
+	{
+		var lista_pesquisar =await _pesquisarViewService.GetPesquisarLista();
+        Professores = lista_pesquisar;
+		OnPropertyChanged(nameof(professoresShow));
+    }
 	public void searchForText()
 	{
-		professoresShow = ConvertToObservableCollection(Professores.Where(x => x.Contains(search)).ToList());
+		professoresShow = new ObservableCollection<SearchProfessor>(Professores.Where(x => x.Nome.Contains(search)).ToList());
         OnPropertyChanged("professoresShow");
         Console.WriteLine(professoresShow.Count);
 	}
-	public ObservableCollection<string> ConvertToObservableCollection(List<string> list) {
-	ObservableCollection<string> newlist = new();
-		foreach(string i in list)
-		{
-			newlist.Add(i);
-		}
-		return newlist;
-	}
+
 
     private void Entry_TextChanged(object sender, TextChangedEventArgs e)
     {
@@ -46,7 +48,7 @@ public partial class Pesquisar : ContentPage
 		searchForText();
 		}else
 		{
-			professoresShow = ConvertToObservableCollection(Professores);
+			professoresShow = new ObservableCollection<SearchProfessor>(Professores);
             OnPropertyChanged("professoresShow");
 
         }
@@ -61,5 +63,13 @@ public partial class Pesquisar : ContentPage
     async Task IrParaProcurar()
     {
         await NavigationAux.Instancia.GoToSearchAsRoot();
+    }
+    [RelayCommand]
+    public async Task PopUpAvaliacao(SearchProfessor search)
+    {
+        CardProfessor Professor = new() { Id = search.Id, Nome = search.Nome };
+        var popup = new AvaliacaoView(Professor);
+        Console.WriteLine("show popup");
+        _page.ShowPopup(popup, PopupOptions.Empty);
     }
 }
