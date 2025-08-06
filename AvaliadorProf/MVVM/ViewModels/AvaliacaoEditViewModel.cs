@@ -1,5 +1,6 @@
 ﻿using AvaliadorProf.MVVM.Models;
 using AvaliadorProf.Services;
+using CommunityToolkit.Maui.Extensions;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System;
@@ -27,7 +28,8 @@ namespace AvaliadorProf.MVVM.ViewModels
         [ObservableProperty]
         public string comentario;
         private AvaliacaoEditViewService _avaliacaoEditViewService;
-        public AvaliacaoEditViewModel(CardProfessor card, AvaliacaoEditViewService avaliacaoEditViewService) {
+        private Page _page;
+        public AvaliacaoEditViewModel(CardProfessor card, AvaliacaoEditViewService avaliacaoEditViewService,Page page) {
             this.card = card;
             for (int i = 0; i < 5; i++)
             {
@@ -36,10 +38,13 @@ namespace AvaliadorProf.MVVM.ViewModels
                 opacidadeEstrelaNotaPlanoEnsino.Add(0.2);
             }
             _avaliacaoEditViewService = avaliacaoEditViewService;
+            _page = page;
         }
         [RelayCommand]
         public async Task EnviarAvaliacao() {
             await _avaliacaoEditViewService.Avaliar(NotaDidatica,NotaDificuldadeProva,NotaPlanoDeEnsino,Comentario,Card.Id);
+            await _page.ClosePopupAsync();
+
         }
         [RelayCommand]
         public void AvalDidatica(string valor)
@@ -54,14 +59,14 @@ namespace AvaliadorProf.MVVM.ViewModels
         public void AvalDificuldadeProva(string valor)
         {
             NotaDificuldadeProva = Int32.Parse(valor);
-            ShowStars(opacidadeEstrelaDificuldadeProva, NotaDidatica);
+            ShowStars(opacidadeEstrelaDificuldadeProva, NotaDificuldadeProva);
             OnPropertyChanged(nameof(opacidadeEstrelaDificuldadeProva));
         }
         [RelayCommand]
         public void AvalPlanoDeEnsino(string valor)
         {
             NotaPlanoDeEnsino = Int32.Parse(valor);
-            ShowStars(opacidadeEstrelaNotaPlanoEnsino, NotaDidatica);
+            ShowStars(opacidadeEstrelaNotaPlanoEnsino, NotaPlanoDeEnsino);
             OnPropertyChanged(nameof(opacidadeEstrelaNotaPlanoEnsino));
         }
         private void ShowStars(ObservableCollection<double> colecao, double nota)

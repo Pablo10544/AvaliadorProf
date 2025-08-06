@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace AvaliadorProf.MVVM.Models
@@ -10,7 +11,7 @@ namespace AvaliadorProf.MVVM.Models
     {
         public int Id { get; set; }
         public string Nome { get; set; }
-        public string caminhoFoto { get; set; }
+        public string urlFoto { get; set; }
         public List<string> Disciplinas { get; set; }
         public float NotaDidatica { get; set; }
         public float NotaDificuldadeProva { get; set; }

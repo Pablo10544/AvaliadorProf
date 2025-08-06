@@ -28,7 +28,7 @@
                             <Entry x:Name="email" ></Entry>
                     </Border>
                         <Border HorizontalOptions="Fill" BackgroundColor="#83ffffff" Padding="0,-8,0,-8" Stroke="Black" StrokeShape="RoundRectangle 20"  >
-                            <Entry x:Name="senha" VerticalOptions="End" VerticalTextAlignment="End"  HorizontalOptions="Start" />
+                            <Entry x:Name="senha" IsPassword="True" VerticalOptions="End" VerticalTextAlignment="End"  HorizontalOptions="Start" />
                     </Border>
                 </VerticalStackLayout>
                 </Grid>   
@@ -41,7 +41,7 @@
         </Border>
 
 
-            <Border Margin="15" StrokeShape="RoundRectangle 20" VerticalOptions="Center">
+            <Border Margin="15" InputTransparent="True" StrokeShape="RoundRectangle 20" VerticalOptions="Center">
         <controls:BlurView Scale="1.05" TranslationY="6" BackgroundColor="Transparent" Opacity="0.7" TranslationX="4" Radius="14" ZIndex="0" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="375" WidthRequest="350">
 
 
@@ -78,5 +78,6 @@
                 <Path x:Name="OrbitPath"  Fill="Blue"  Data="M149 61C168.2 2.20002 88 -6 57.5 6.00002C-23 54 -0.499998 146.333 19 177.5C31.4 219.5 222.5 196 222.5 196C258.5 185 235 165.833 204.5 146.5C178 142.5 129.8 119.8 149 61Z"/>
             </Grid>
         </controls:BlurView>
+        <Entry WidthRequest="200" x:Name="IP" VerticalOptions="End"></Entry>
     </Grid>
 </ContentPage>

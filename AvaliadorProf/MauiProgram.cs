@@ -26,6 +26,7 @@ namespace AvaliadorProf
             handlers.AddHandler(typeof(BlurView), typeof(BlurViewHandler));
         });
 #endif
+            Preferences.Set("base_url", "http://192.168.2.107:5000");
             builder
                 .UseMauiApp<App>()
                 .UseMauiCommunityToolkit()

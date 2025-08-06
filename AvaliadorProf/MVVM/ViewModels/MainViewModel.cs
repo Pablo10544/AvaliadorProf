@@ -20,6 +20,7 @@ namespace AvaliadorProf.MVVM.ViewModels
     public partial class MainViewModel : ObservableObject
     {
         public ObservableCollection<CardProfessor> cards { get; set; } = new();
+        public ObservableCollection<ImageSource> images { get; set; } = new();
         Page page;
         public CardsView cardView;
         public string search { get; set; }
@@ -33,14 +34,25 @@ namespace AvaliadorProf.MVVM.ViewModels
 
         }
         [RelayCommand]
-        async void Appearing()
-        {
+        async Task Appearing()
+        {   if (cards.Count() > 0) {
+                return;
+            }
             var list = await PopularCards();
+            //var tasks = list.Select(async item =>
+            //{
+            //    item.Foto = await GetImage(item.Id);
+            //    return item;
+            //});
+            //var completedItems = await Task.WhenAll(tasks);
+            Uri base_url = new Uri(Preferences.Get("back_end_url", ""));
+
             foreach (var item in list)
             {
+                item.urlFoto = base_url + "foto-professor?professor_id=" + item.Id;
                 cards.Add(item);
             }
-            OnPropertyChanged();
+            OnPropertyChanged(nameof(cards));
 
         }
 
@@ -76,9 +88,18 @@ namespace AvaliadorProf.MVVM.ViewModels
         [RelayCommand]
         public void Match(CardProfessor Professor)
         {
-            var popup = new AvaliacaoEditView(Professor);
+            var popup = new AvaliacaoEditView(Professor,page);
             Console.WriteLine("show popup");
             page.ShowPopup(popup, PopupOptions.Empty);
+            cards.RemoveAt(0);
+        }
+        [RelayCommand]
+        public async Task<ImageSource> GetImage(int professor_id)
+        {
+            var imageBytes=await _mainViewService.GetImageProfessor(professor_id);
+
+                     ImageSource imageSource = ImageSource.FromStream(() => new MemoryStream(imageBytes));
+            return imageSource;
         }
 
     }

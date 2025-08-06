@@ -34,8 +34,8 @@
                             <Border            Margin="-3,-2,-1,0"
                                 >
                                 <!--Margin="-3,0,-1,0"-->
-                                
-                                <Image Source="fab.jpg" Aspect="AspectFill"></Image>
+
+                                <Image Source="{Binding urlFoto}" Aspect="AspectFill"></Image>
 
                             </Border>
                             <Border BackgroundColor="White" Margin="0,0,20,20" StrokeShape="Ellipse" HorizontalOptions="End" VerticalOptions="End">

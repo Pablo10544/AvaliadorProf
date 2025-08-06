@@ -11,9 +11,10 @@ namespace AvaliadorProf
     public class MainViewService
     {
         private HttpClient _client;
-        private Uri base_url = new Uri("http://10.0.2.2:5000");
+        private Uri base_url = new Uri(Preferences.Get("back_end_url", ""));
         const string urlGetCards = "buscar-cards?aluno_id=1&curso=1";
         const string rejeitar = "rejeitar-professor";
+        const string urlGetImage = "foto-professor";
         public MainViewService(HttpClient cliente) {
             _client = cliente;
             _client.BaseAddress = base_url;
@@ -39,6 +40,12 @@ namespace AvaliadorProf
             var content = new FormUrlEncodedContent(pairs);
             var response = await _client.PostAsync(rejeitar, content);
 
+        }
+        public async Task<byte[]> GetImageProfessor(int professor_id)
+        {
+            using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(10)); // define timeout
+            var response = await _client.GetByteArrayAsync(urlGetImage+"?professor_id="+professor_id, cts.Token);
+            return response;
         }
     }
 }

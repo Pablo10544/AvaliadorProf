@@ -9,7 +9,7 @@ namespace AvaliadorProf.Services
     public class AvaliacaoEditViewService
     {
         private HttpClient _client;
-        private Uri base_url = new Uri("http://10.0.2.2:5000");
+        private Uri base_url = new Uri(Preferences.Get("back_end_url", ""));
         const string avaliar = "avaliar";
         public AvaliacaoEditViewService(HttpClient cliente)
         {

@@ -5,9 +5,9 @@ namespace AvaliadorProf.MVVM.Views;
 
 public partial class AvaliacaoEditView : ContentView
 {
-	public AvaliacaoEditView(CardProfessor card)
+	public AvaliacaoEditView(CardProfessor card,Page page)
 	{
 		InitializeComponent();
-		BindingContext = new AvaliacaoEditViewModel(card,new Services.AvaliacaoEditViewService(new HttpClient()));
+		BindingContext = new AvaliacaoEditViewModel(card,new Services.AvaliacaoEditViewService(new HttpClient()),page);
 }
 }
