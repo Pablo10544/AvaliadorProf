@@ -49,7 +49,7 @@ namespace AvaliadorProf.MVVM.ViewModels
 
             foreach (var item in list)
             {
-                item.urlFoto = base_url + "foto-professor?professor_id=" + item.Id;
+                item.urlFoto = base_url + "foto-professor?professor_id=" + item.Id+"&l=l";
                 cards.Add(item);
             }
             OnPropertyChanged(nameof(cards));

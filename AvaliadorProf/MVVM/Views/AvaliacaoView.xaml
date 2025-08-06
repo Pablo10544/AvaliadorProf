@@ -8,7 +8,7 @@
         <Grid ColumnDefinitions="0.7*,0.25*">
             <Label VerticalOptions="Start" HorizontalOptions="End" FontSize="30" Text="{Binding Card.Nome,StringFormat='Professor {0}'}"></Label>
             <Border Margin="5,8,-5,6" BackgroundColor="Blue" Grid.Column="1" StrokeShape="RoundRectangle 20">
-                <Label VerticalTextAlignment="Center" Padding="0,0,0,5"   HorizontalTextAlignment="Center" TextColor="White" FontSize="14" Text="{Binding Card.MediaNotas,StringFormat='Nota: {0}'}"></Label>
+                <Label VerticalTextAlignment="Center" Padding="0,0,0,5"   HorizontalTextAlignment="Center" TextColor="White" FontSize="14" Text="{Binding Card.MediaNotas,StringFormat='Nota: {0:F2}'}"></Label>
             </Border>
         </Grid>
         <Border StrokeShape="RoundRectangle 20" BackgroundColor="LightGray" WidthRequest="110">

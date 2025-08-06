@@ -14,20 +14,20 @@
         <Border Margin="15" ZIndex="1" BackgroundColor="#40ffffff" StrokeShape="RoundRectangle 20" VerticalOptions="Center">
 
             <VerticalStackLayout Padding="5,10,20,0"  Spacing="10">
-                <Border StrokeShape="Ellipse" WidthRequest="180" StrokeThickness="2" BackgroundColor="Black" Stroke="Black" HeightRequest="180">
+                <Border StrokeShape="Ellipse" WidthRequest="180" StrokeThickness="2" Opacity="0.75" BackgroundColor="#B81C1C" Stroke="Black" HeightRequest="180">
                     
-                <Image Source="user.png" Aspect="Fill" Scale="1.1" HeightRequest="180"></Image>
+                <Image Source="user.png" Aspect="Fill"  Scale="1.1" HeightRequest="180"></Image>
                 </Border>
                 <Grid ColumnDefinitions="0.2*,0.8*">
                     <VerticalStackLayout Padding="10,5,0,0" Spacing="35">
                         <Label FontAttributes="Bold" VerticalOptions="End" HorizontalTextAlignment="Start" VerticalTextAlignment="End" WidthRequest="50">Email:</Label>
                         <Label FontAttributes="Bold" VerticalOptions="End"   HorizontalTextAlignment="Start" WidthRequest="50" VerticalTextAlignment="End"  Grid.Row="1">Senha:</Label>
                 </VerticalStackLayout>
-                    <VerticalStackLayout Grid.Column="1" Spacing="20">
-                        <Border HorizontalOptions="Fill" BackgroundColor="#83ffffff" Padding="0,-8,0,-8" Stroke="Black" StrokeShape="RoundRectangle 20"  >
+                    <VerticalStackLayout Grid.Column="1" Spacing="23">
+                        <Border HorizontalOptions="Fill" BackgroundColor="#ffffff" Padding="0,-8,0,-8" Stroke="Black" StrokeShape="RoundRectangle 20"  >
                             <Entry x:Name="email" ></Entry>
                     </Border>
-                        <Border HorizontalOptions="Fill" BackgroundColor="#83ffffff" Padding="0,-8,0,-8" Stroke="Black" StrokeShape="RoundRectangle 20"  >
+                        <Border HorizontalOptions="Fill" BackgroundColor="#ffffff" Padding="0,-8,0,-8" Stroke="Black" StrokeShape="RoundRectangle 20"  >
                             <Entry x:Name="senha" IsPassword="True" VerticalOptions="End" VerticalTextAlignment="End"  HorizontalOptions="Start" />
                     </Border>
                 </VerticalStackLayout>
@@ -42,7 +42,7 @@
 
 
             <Border Margin="15" InputTransparent="True" StrokeShape="RoundRectangle 20" VerticalOptions="Center">
-        <controls:BlurView Scale="1.05" TranslationY="6" BackgroundColor="Transparent" Opacity="0.7" TranslationX="4" Radius="14" ZIndex="0" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="375" WidthRequest="350">
+        <controls:BlurView Scale="1.05" TranslationY="6" BackgroundColor="Transparent" Opacity="0.65" TranslationX="4" Radius="14" ZIndex="0" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="375" WidthRequest="350">
 
 
                 <VerticalStackLayout HorizontalOptions="Fill" Spacing="6" Padding="5,10,20,0">
