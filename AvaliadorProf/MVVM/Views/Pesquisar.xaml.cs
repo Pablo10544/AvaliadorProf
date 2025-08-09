@@ -13,26 +13,30 @@ public partial class Pesquisar : ContentPage
 	List<SearchProfessor> _professores = new();
 	public List<SearchProfessor> Professores { get { return _professores; } set { professoresShow = new ObservableCollection<SearchProfessor>(value); _professores = value; } }
 	public ObservableCollection<SearchProfessor> professoresShow { get; set; } = new();
-	public string search { get; set; }
+	
+    public string search { get; set; }
 	private PesquisarViewService _pesquisarViewService;
     private Page _page;
 
-    public Pesquisar(PesquisarViewService pesquisarViewService)
+    public Pesquisar(PesquisarViewService pesquisarViewService,string searchquery="")
 	{
 		_pesquisarViewService = pesquisarViewService;
         BindingContext = this;
         _page = this;
-		InitializeComponent();
+        search = searchquery;
+        OnPropertyChanged(nameof(search));
+        InitializeComponent();
 	}
     protected override async void OnAppearing()
 	{
 		var lista_pesquisar =await _pesquisarViewService.GetPesquisarLista();
         Professores = lista_pesquisar;
+        MakeSearch();
 		OnPropertyChanged(nameof(professoresShow));
     }
 	public void searchForText()
 	{
-		professoresShow = new ObservableCollection<SearchProfessor>(Professores.Where(x => x.Nome.Contains(search)).ToList());
+		professoresShow = new ObservableCollection<SearchProfessor>(Professores.Where(x => x.Nome.ToLower().Contains(search.ToLower())).ToList());
         OnPropertyChanged("professoresShow");
         Console.WriteLine(professoresShow.Count);
 	}
@@ -52,6 +56,23 @@ public partial class Pesquisar : ContentPage
             OnPropertyChanged("professoresShow");
 
         }
+    }
+    private void MakeSearch()
+    {
+        Entry en = Entrada;
+        if (en.Text != "")
+        {
+            search = en.Text;
+            Console.WriteLine(search);
+            searchForText();
+        }
+        else
+        {
+            professoresShow = new ObservableCollection<SearchProfessor>(Professores);
+            OnPropertyChanged("professoresShow");
+
+        }
+        OnPropertyChanged(nameof(professoresShow));
     }
     [RelayCommand]
     async Task IrParaCards()

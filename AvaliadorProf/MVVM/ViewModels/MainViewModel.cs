@@ -23,7 +23,8 @@ namespace AvaliadorProf.MVVM.ViewModels
         public ObservableCollection<ImageSource> images { get; set; } = new();
         Page page;
         public CardsView cardView;
-        public string search { get; set; }
+        [ObservableProperty]
+        public string search;
         private MainViewService _mainViewService;
         public MainViewModel(MainViewService mainViewService)
         {
@@ -66,6 +67,11 @@ namespace AvaliadorProf.MVVM.ViewModels
         async Task IrParaProcurar()
         {
             await NavigationAux.Instancia.GoToSearchAsRoot();
+        }
+        [RelayCommand]
+        async Task IrParaProcurarComParametro(string search)
+        {
+            await NavigationAux.Instancia.GoToSearchAsRootWithSearch(search);
         }
         [RelayCommand]
         public async Task PopUpAvaliacao(CardProfessor Professor)

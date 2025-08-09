@@ -12,7 +12,7 @@
     <Grid>
     <VerticalStackLayout>
         <Border Stroke="Black" Margin="10,10,10,0" StrokeShape="RoundRectangle 5">
-            <Entry Margin="10,0,0,0" Placeholder="Pesquisar..." TextColor="Black" TextChanged="Entry_TextChanged"></Entry>
+            <Entry x:Name="Entrada"  Margin="10,0,0,0" Placeholder="Pesquisar..." TextColor="Black" Text="{Binding search}" TextChanged="Entry_TextChanged"></Entry>
         </Border>
         <Label VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="30">Professores</Label>
         <CollectionView ItemsSource="{Binding professoresShow}" Margin="5,0,5,0">

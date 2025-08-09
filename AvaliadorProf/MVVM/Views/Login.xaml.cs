@@ -44,7 +44,7 @@ public partial class Login : ContentPage
     private void Button_Clicked(object sender, EventArgs e)
     {
         if (email.Text!=null && senha.Text!=null) {
-            Preferences.Set("back_end_url", IP.Text);
+            Preferences.Set("back_end_url", IP.Text?? "https://backendavaliaufjf-production.up.railway.app/");
         NavigationAux.Instancia.GoToMainAsRoot();
         }
     }
