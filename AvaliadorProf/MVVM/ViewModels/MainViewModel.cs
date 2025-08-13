@@ -94,6 +94,9 @@ namespace AvaliadorProf.MVVM.ViewModels
             cards.RemoveAt(0);            
             await _mainViewService.Rejeitar(professor_id);
         }
+        public void RejeitarSemAsync(int professor_id) {
+            _mainViewService.Rejeitar(professor_id);
+        }
 
         [RelayCommand]
         public void Match(CardProfessor Professor)
@@ -102,6 +105,12 @@ namespace AvaliadorProf.MVVM.ViewModels
             Console.WriteLine("show popup");
             page.ShowPopup(popup, PopupOptions.Empty);
             cards.RemoveAt(0);
+        }
+        public void MatchSemAsync(CardProfessor Professor)
+        {
+            var popup = new AvaliacaoEditView(Professor, page);
+            Console.WriteLine("show popup");
+            page.ShowPopup(popup, PopupOptions.Empty);
         }
         [RelayCommand]
         public async Task<ImageSource> GetImage(int professor_id)

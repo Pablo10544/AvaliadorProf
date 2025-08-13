@@ -36,12 +36,12 @@ namespace AvaliadorProf
             {
                 if (args.Direction == ItemSwipeDirection.Left)
                 {
-                    (BindingContext as MainViewModel).Rejeitar(card.Id);
+                    (BindingContext as MainViewModel).RejeitarSemAsync(card.Id);
 
                 }
                 else if (args.Direction == ItemSwipeDirection.Right)
                 {
-                    (BindingContext as MainViewModel).Match(card);
+                    (BindingContext as MainViewModel).MatchSemAsync(card);
                 }
             }
         }

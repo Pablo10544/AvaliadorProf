@@ -17,7 +17,7 @@
                 <Image Source="search.png" Margin="4" Grid.Column="1"></Image>
             </Grid>
         </Border>
-        <cards:CardsView x:Name="cardView" Grid.Row="1" ItemsSource="{Binding cards}" ItemSwiped="cardView_ItemSwiped"  IsOnlyForwardDirection="True" IsVerticalSwipeEnabled="True" IsCyclical="False"  BackViewsDepth="3">
+        <cards:CardsView x:Name="cardView" Grid.Row="1" ItemsSource="{Binding cards}" ItemSwiped="cardView_ItemSwiped"  IsOnlyForwardDirection="True" IsVerticalSwipeEnabled="True" IsCyclical="False"  BackViewsDepth="1">
             <cards:CardsView.ItemTemplate>
                 <DataTemplate>
                     <Border BackgroundColor="White" Margin="20,20,20,0" StrokeThickness="2" Stroke="Black" StrokeShape="RoundRectangle 5">
