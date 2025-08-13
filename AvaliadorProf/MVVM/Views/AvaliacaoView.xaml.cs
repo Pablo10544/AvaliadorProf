@@ -5,10 +5,10 @@ namespace AvaliadorProf.MVVM.Views;
 
 public partial class AvaliacaoView : ContentView
 {
-	public AvaliacaoView(CardProfessor card)
+	public AvaliacaoView(CardProfessor card,bool showDeleteButton=false)
 	{
 		InitializeComponent();
-		BindingContext = new AvaliacaoViewModel(card,new Services.AvaliacaoViewService(new HttpClient()));
+		BindingContext = new AvaliacaoViewModel(card,new Services.AvaliacaoViewService(new HttpClient()),showDeleteButton);
 	}
 
     private void ImageButton_Clicked(object sender, EventArgs e)

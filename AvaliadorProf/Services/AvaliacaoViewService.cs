@@ -13,7 +13,10 @@ namespace AvaliadorProf.Services
         private HttpClient _client;
         private Uri base_url = new Uri(Preferences.Get("back_end_url", ""));
         const string urlGetCards = "buscar-avaliacao";
- 
+        const string urlGetIdComentario = "buscar-id-avaliacao";
+        const string urlRemoveComentario = "deletar-comentario";
+
+
 
         public AvaliacaoViewService(HttpClient cliente)
         {
@@ -31,5 +34,16 @@ namespace AvaliadorProf.Services
             //convert response to object
             return Card;
         }
+        public async Task RemoveComentario(int id) {
+            await _client.DeleteAsync(urlRemoveComentario+"?avaliacao_id="+id);
+        }
+        public async Task<int> GetComentarioId(string comentario,int professor_id) {
+            var response = await _client.GetAsync(urlGetIdComentario+"?professor_id="+professor_id+"&comentario="+comentario);
+             var content=await response.Content.ReadAsStringAsync();
+            using JsonDocument doc = JsonDocument.Parse(content);
+            int id = doc.RootElement.GetProperty("id").GetInt32();
+            return id;
+        }
     }
+
 }

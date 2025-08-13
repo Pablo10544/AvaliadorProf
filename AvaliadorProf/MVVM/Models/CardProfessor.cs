@@ -24,7 +24,7 @@ namespace AvaliadorProf.MVVM.Models
         public int quantidade_nota_2 { get; set; }
         public int quantidade_nota_1 { get; set; }
 
-        public List<string> Comentarios { get; set; }
+        public List<string> Comentarios { get; set; } = new();
 
 
     }

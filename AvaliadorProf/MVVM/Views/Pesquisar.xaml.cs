@@ -89,7 +89,7 @@ public partial class Pesquisar : ContentPage
     public async Task PopUpAvaliacao(SearchProfessor search)
     {
         CardProfessor Professor = new() { Id = search.Id, Nome = search.Nome };
-        var popup = new AvaliacaoView(Professor);
+        var popup = new AvaliacaoView(Professor,true);
         Console.WriteLine("show popup");
         _page.ShowPopup(popup, PopupOptions.Empty);
     }

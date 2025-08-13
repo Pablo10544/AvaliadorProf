@@ -29,13 +29,16 @@ namespace AvaliadorProf.MVVM.ViewModels
         public ObservableCollection<double> opacidadeEstrelaDificuldadeProva { get; set; } = new();
         public ObservableCollection<double> opacidadeEstrelaNotaPlanoEnsino { get; set; } = new();
         private AvaliacaoViewService _avaliacaoViewService;
+        public ObservableCollection<string> ComentariosCard { get; set; } = new();
+        [ObservableProperty]
+        public bool showRemoveButton = false;
 
 
-
-        public AvaliacaoViewModel(CardProfessor card,AvaliacaoViewService avaliacao)
+        public AvaliacaoViewModel(CardProfessor card,AvaliacaoViewService avaliacao,bool showremoveButton=false)
         {
             this.card = card;
             _avaliacaoViewService = avaliacao;
+            ShowRemoveButton = showremoveButton;
             for (int i = 0; i < 5; i++)
             {
                 opacidadeEstrelaDidadica.Add(0.2);
@@ -43,6 +46,7 @@ namespace AvaliadorProf.MVVM.ViewModels
                 opacidadeEstrelaNotaPlanoEnsino.Add(0.2);
             }
            _=PopularCards(card.Id);
+
 
         }
         private void ShowStars(ObservableCollection<double> colecao, double nota)
@@ -61,6 +65,9 @@ namespace AvaliadorProf.MVVM.ViewModels
             ShowStars(opacidadeEstrelaDidadica, Card.NotaDidatica);
             ShowStars(opacidadeEstrelaDificuldadeProva, Card.NotaDificuldadeProva);
             ShowStars(opacidadeEstrelaNotaPlanoEnsino, Card.NotaPlanoEnisno);
+            if (Card.Comentarios.Count()>0) {
+            ComentariosCard = new ObservableCollection<string>(Card.Comentarios);
+            }
             Progress5stars = (float)Card.quantidade_nota_5 /(float) Card.TotalAvaliacoes;
             Progress4stars = (float)Card.quantidade_nota_4 / (float)Card.TotalAvaliacoes;
             Progress3stars = (float)Card.quantidade_nota_3 / (float)Card.TotalAvaliacoes;
@@ -72,7 +79,7 @@ namespace AvaliadorProf.MVVM.ViewModels
             OnPropertyChanged(nameof(opacidadeEstrelaNotaPlanoEnsino));
             OnPropertyChanged(nameof(Card));
             OnPropertyChanged(nameof(Progress5stars));
-
+            OnPropertyChanged(nameof(ComentariosCard));
 
         }
         public void AtualizarObjeto<T>(T antigo, T novo)
@@ -107,6 +114,14 @@ namespace AvaliadorProf.MVVM.ViewModels
                         prop.SetValue(antigo, novoValor);
                 }
             }
+        }
+        [RelayCommand]
+        public async Task RemoveComment(string comentario) {
+            ComentariosCard.Remove(comentario);
+            int id =await _avaliacaoViewService.GetComentarioId(comentario,card.Id);
+            await _avaliacaoViewService.RemoveComentario(id);
+            OnPropertyChanged(nameof(ComentariosCard));
+
         }
 
     }

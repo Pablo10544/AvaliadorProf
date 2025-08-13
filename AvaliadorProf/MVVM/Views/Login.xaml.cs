@@ -1,10 +1,12 @@
 
 using AvaliadorProf.MVVM.ViewModels;
+using CommunityToolkit.Maui.Alerts;
 
 namespace AvaliadorProf.MVVM.Views;
 
 public partial class Login : ContentPage
 {
+    bool IsCreatingAccount = false;
     public Login()
     {
         InitializeComponent();
@@ -45,7 +47,27 @@ public partial class Login : ContentPage
     {
         if (email.Text!=null && senha.Text!=null) {
             Preferences.Set("back_end_url", IP.Text?? "https://backendavaliaufjf-production.up.railway.app/");
-        NavigationAux.Instancia.GoToMainAsRoot();
+            if (IsCreatingAccount)
+            {
+                var toast = Toast.Make("Conta criada com sucesso!");
+                toast.Show();
+            }
+            NavigateToMain();
         }
+    }
+    void NavigateToMain()
+    {
+        NavigationAux.Instancia.GoToMainAsRoot();
+
+    }
+
+    private void Button_Clicked_1(object sender, EventArgs e)
+    {
+        IsCreatingAccount = true;
+        BotaoEntrar.Text = "Criar Conta";
+        BotaoEntrar.FontSize = 15;
+        CriarContaButton.TextColor =Colors.Transparent;
+        CriarContaButton.IsEnabled = false;
+        CriarContaLabel.TextColor = Colors.Transparent;
     }
 }
