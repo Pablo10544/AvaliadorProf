@@ -7,6 +7,8 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Maui.Controls.Shapes;
 using PanCardView;
+using PanCardView.Enums;
+using PanCardView.EventArgs;
 using PanCardView.Processors;
 using System;
 using System.Collections.Generic;
@@ -26,12 +28,14 @@ namespace AvaliadorProf.MVVM.ViewModels
         [ObservableProperty]
         public string search;
         private MainViewService _mainViewService;
+        public IRelayCommand<ItemSwipedEventArgs> CardSwipedCommand { get; }
         public MainViewModel(MainViewService mainViewService)
         {
             _mainViewService = mainViewService;
             //cards.Add(new CardProfessor());
             //cards.Add(new CardProfessor());
             this.page = App.Current.Windows[0].Page;
+            CardSwipedCommand = new RelayCommand<ItemSwipedEventArgs>(OnCardSwiped);
 
         }
         [RelayCommand]
@@ -87,7 +91,7 @@ namespace AvaliadorProf.MVVM.ViewModels
         [RelayCommand]
         public async Task Rejeitar(int professor_id)
         {   
-            cards.RemoveAt(0);
+            cards.RemoveAt(0);            
             await _mainViewService.Rejeitar(professor_id);
         }
 
@@ -106,6 +110,24 @@ namespace AvaliadorProf.MVVM.ViewModels
 
                      ImageSource imageSource = ImageSource.FromStream(() => new MemoryStream(imageBytes));
             return imageSource;
+        }
+        private void OnCardSwiped(ItemSwipedEventArgs e)
+        {
+            if (e?.Item is CardProfessor card)
+            {
+                var id = card.Id;
+                var direction = e.Direction;
+                if (direction == ItemSwipeDirection.Left)
+                {
+                    // Lógica para swipe para a esquerda
+                    Rejeitar(id);
+                }
+                else if (direction == ItemSwipeDirection.Right)
+                {
+                    // Lógica para swipe para a direita
+                     Match(card);
+                }
+            }
         }
 
     }
