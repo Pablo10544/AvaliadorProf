@@ -1,7 +1,13 @@
 # Avaliador de Professor
 Sistema mobile e para desktop desenvolvido para alunos de universidades avaliarem os professores com os quais cursaram disciplinas, fornecendo notas e comentários anônimos.
 ## Showcase
-https://github.com/user-attachments/assets/af42ee4e-31b0-4c49-9522-6b9c2d8b3971
+<img height="500" alt="cards" src="https://github.com/user-attachments/assets/6b99312a-2c7b-47df-a7fc-649ce3ec8d67" />
+<img height="500" alt="aval" src="https://github.com/user-attachments/assets/88958183-af21-45be-b221-5bbf342797a3" />
+<img height="500" alt="pesquisar" src="https://github.com/user-attachments/assets/68caed48-1c60-4f16-99a3-e097e88a35af" />
+<img height="500" alt="info" src="https://github.com/user-attachments/assets/eec1dedd-5e0f-4934-9d26-8e482fe29cc0" />
+<img height="500" alt="login" src="https://github.com/user-attachments/assets/e3453755-3d1b-4f06-a97f-43395334833e" />
+
+<video src="https://github.com/user-attachments/assets/af42ee4e-31b0-4c49-9522-6b9c2d8b3971" controls></video>
 ## Stack
 .NET MAUI <br>
 Flask<br>
