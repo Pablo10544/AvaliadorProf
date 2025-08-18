@@ -1,5 +1,8 @@
 # Avaliador de Professor
 Sistema mobile e para desktop desenvolvido para alunos de universidades avaliarem os professores com os quais cursaram disciplinas, fornecendo notas e comentários anônimos.
+## Showcase
+
+<video src="https://github.com/user-attachments/assets/af42ee4e-31b0-4c49-9522-6b9c2d8b3971" height="600" />
 ## Stack
 .NET MAUI <br>
 Flask<br>
