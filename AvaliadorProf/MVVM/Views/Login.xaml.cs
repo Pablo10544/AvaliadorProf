@@ -1,6 +1,8 @@
 
 using AvaliadorProf.MVVM.ViewModels;
 using CommunityToolkit.Maui.Alerts;
+using System.Text.Json;
+using System.Text.Json.Nodes;
 
 namespace AvaliadorProf.MVVM.Views;
 
@@ -46,13 +48,33 @@ public partial class Login : ContentPage
     private void Button_Clicked(object sender, EventArgs e)
     {
         if (email.Text!=null && senha.Text!=null) {
-            Preferences.Set("back_end_url", IP.Text?? "https://backendavaliaufjf-production.up.railway.app/");
+            // Preferences.Set("back_end_url", IP.Text?? "https://backendavaliaufjf-production.up.railway.app/");
+            Preferences.Set("back_end_url", IP.Text ?? "http://192.168.2.105:5000");
+
             if (IsCreatingAccount)
             {
                 var toast = Toast.Make("Conta criada com sucesso!");
                 toast.Show();
+            }        
+             HttpClient _client = new HttpClient();
+            Uri base_url = new Uri(Preferences.Get("back_end_url", ""));
+            _client.BaseAddress = base_url;
+            var pairs = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("email",email.Text ),
+                new KeyValuePair<string, string>("senha", senha.Text)
+
+            };
+            var content = new FormUrlEncodedContent(pairs);
+           HttpResponseMessage response= _client.PostAsync("login",content).Result;
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+               var token =response.Content.ReadAsStringAsync().Result;
+                var token2 = token.Substring(token.IndexOf("\"token\":")).Replace("\"", "").Replace("token: ","").Replace("\n","").Replace("}","") ;
+                Preferences.Set("token",token2);
+
+                NavigateToMain();
             }
-            NavigateToMain();
         }
     }
     void NavigateToMain()

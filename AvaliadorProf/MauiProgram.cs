@@ -26,7 +26,7 @@ namespace AvaliadorProf
             handlers.AddHandler(typeof(BlurView), typeof(BlurViewHandler));
         });
 #endif
-            Preferences.Set("back_end_url", "http://192.168.2.107:5000");
+            Preferences.Set("back_end_url", "http://192.168.2.105:5000");
             builder
                 .UseMauiApp<App>()
                 .UseMauiCommunityToolkit()

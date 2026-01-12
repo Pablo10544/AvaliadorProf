@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,6 +16,8 @@ namespace AvaliadorProf.Services
         {
             _client = cliente;
             _client.BaseAddress = base_url;
+            _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Preferences.Get("token", ""));
+
         }
         public async Task Avaliar(int didatica,int dificuldadeProva, int planoDeEnsino,string comentario,int professor_id)
         {
